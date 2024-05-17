@@ -18,5 +18,20 @@ function mouseFlashLight_getXY(e){
     document.getElementById("mouseFlashLight").style.setProperty("--Ypos",mouseFlashLight_ypos + "px")
 }
 
+async function start_menu_BackGroundAnimation(){
+
+    var now = 1
+    var q = setInterval(() => {
+        if(isMainScreen == 0) clearInterval(q);
+        now = now == 1 ? 2 : 1
+        background.attribute("src","image/main_menu_backGround0" +(now).toString() + ".png")
+    }, 1000);
+
+}
+
+
+
+
+start_menu_BackGroundAnimation();
 document.addEventListener("mousemove",mouseFlashLight_getXY);
 document.addEventListener("touchmove",mouseFlashLight_getXY);

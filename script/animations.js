@@ -22,15 +22,25 @@ async function start_menu_BackGroundAnimation(){
 
     var now = 1
     var q = setInterval(() => {
-        if(isMainScreen == 0) clearInterval(q);
-        now = now == 1 ? 2 : 1
-        background.attribute("src","image/main_menu_backGround0" +(now).toString() + ".png")
-    }, 1000);
-
+        if(isMainScreen == 0){
+            clearInterval(q);
+            background.attribute("src","image/main_menu_backGround02.png");
+        }
+        now = now == 1 ? 0 : 1
+        if(isMainScreen == 1){
+            background.attribute("src","image/main_menu_backGround0" +(now).toString() + ".png")
+        }
+    }, 500);
+    
+    
 }
 
 
-
+function delay(n) {
+	return new Promise(function(resolve) {
+	  setTimeout(resolve, n * 1000);
+	});
+  }
 
 start_menu_BackGroundAnimation();
 document.addEventListener("mousemove",mouseFlashLight_getXY);

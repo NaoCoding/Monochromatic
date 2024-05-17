@@ -9,6 +9,11 @@ isMainScreen = 1
 // function main_menu() 主畫面
 // function setup() p5.js 開始設定
 
+async function startGame(){
+
+    await delay(1);
+
+}
 
 function main_menu(){ // 主畫面
 
@@ -38,6 +43,7 @@ function main_menu(){ // 主畫面
     main_menu_startGameBtn.style("borderColor","rgb(0,0,0)")
     main_menu_startGameBtn.style("borderWidth","2px")
     main_menu_startGameBtn.style("borderStyle","solid")
+    main_menu_startGameBtn.attribute("onclick","isMainScreen=0;startGame();")
     main_menu_startGameBtn.show()
 
     main_menu_GitHubBtn = createImg("image/main_menu_GitHubBtn.png","main_menu_GitHubBtn")
@@ -51,6 +57,7 @@ function main_menu(){ // 主畫面
     main_menu_GitHubBtn.style("borderColor","rgb(0,0,0)")
     main_menu_GitHubBtn.style("borderWidth","2px")
     main_menu_GitHubBtn.style("borderStyle","solid")
+    main_menu_GitHubBtn.attribute("onclick","document.location.href=\"https://github.com/NaoCoding/Monochromatic\"")
     main_menu_GitHubBtn.show()
 
     main_menu_titleLabel = createImg("image/main_menu_TitleLabel.png","main_menu_TitleLabel")

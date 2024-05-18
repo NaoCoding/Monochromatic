@@ -9,7 +9,7 @@ function start_SceneBedroom() {
     RoomWall.style("zIndex:-1");
     RoomWall.show();
 
-    bedroom_Bed = createImg("image/bedroom_bed.png","bed")
+    bedroom_Bed = createImg("image/bedroom_bedRed.png","bed")
     bedroom_Bed.style("position:absolute;top:15%;left:15%;width:12%;height:30%;");
     bedroom_Bed.attribute("id","bedroom_Bed")
     bedroom_Bed.show()

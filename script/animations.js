@@ -1,5 +1,5 @@
-let mouseFlashLight_xpos = 0;
-let mouseFlashLight_ypos = 0;
+let FlashLightWhite_xpos = 0;
+let FlashLightWhite_ypos = 0;
 
 async function story_tellFunction(target){
 
@@ -40,10 +40,10 @@ async function dialogBoxFunction(target){
 
 }
 
-function mouseFlashLight_getXY(){
+function FlashLightWhite_getXY(){
     var c = document.getElementById("mainCharacter")
-    document.getElementById("mouseFlashLight").style.setProperty("--Xpos",(parseFloat(c.style.left) + parseFloat(c.style.width)/2) + "%")
-    document.getElementById("mouseFlashLight").style.setProperty("--Ypos",(parseFloat(c.style.top) + parseFloat(c.style.height)/2) + "%")
+    document.getElementById("FlashLightWhite").style.setProperty("--Xpos",(parseFloat(c.style.left) + parseFloat(c.style.width)/2) + "%")
+    document.getElementById("FlashLightWhite").style.setProperty("--Ypos",(parseFloat(c.style.top) + parseFloat(c.style.height)/2) + "%")
 }
 
 async function fadeOutAnimation(ms){

@@ -15,7 +15,7 @@ function CharacterBtnDetection(e){
     var moveSpeed = 1
 
     if(isControlingCharacter == 1){
-        mouseFlashLight_getXY();
+        FlashLightWhite_getXY();
         var left = parseFloat(c.style.left)
         var top = parseFloat(c.style.top)
         var width = parseFloat(c.style.width)

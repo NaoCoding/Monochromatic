@@ -79,6 +79,7 @@ function InventoryInterface() {
   // 關閉按鈕
   close = createDiv("X  ");
   close.parent(inventoryWindow);
+  close.style("cursor: pointer");
   close.style("position", "absolute");
   close.style("top: 2%; right: 10px");
   close.mousePressed(toggleInventory);

@@ -8,14 +8,14 @@ let start_Game_BGM;
 let RoomWall; // 場景邊界
 let mainCharacter; // 主角
 let dialogBox; // 對話框
-let BtnSuccess_Sound
-let PressE2Interact_Label
+let BtnSuccess_Sound;
+let PressE2Interact_Label;
 
-touchSafeBox = 0
+touchSafeBox = 0;
 isMainScreen = 1;
 isControlingCharacter = 0; // 偵測是否正在可控制腳色的畫面
 MoveBorder = [[0, 100, 0, 100]]; // 可移動的邊界( % 為單位), x_left , x_right , y_left , y_right
-PressEBorder = []
+PressEBorder = [];
 // Long
 let colorButton;
 let inventoryButton;
@@ -28,11 +28,10 @@ isMainScreen = 1;
 // function main_menu() 主畫面
 // function setup() p5.js 開始設定
 
-
-async function dev(e){
-  if(e == 1){
-    isMainScreen = 0
-    isControlingCharacter = 1
+async function dev(e) {
+  if (e == 1) {
+    isMainScreen = 0;
+    isControlingCharacter = 1;
     main_menu_startGameBtn.hide();
     main_menu_titleLabel.hide();
     main_menu_GitHubBtn.hide();
@@ -53,7 +52,6 @@ async function dev(e){
 async function startGame() {
   // 開始遊戲後的過場動畫
 
-  
   document.getElementById("BtnSuccess_Sound").play();
   await delay(1000);
   document.getElementById("BtnSuccess_Sound").pause();
@@ -101,6 +99,7 @@ async function startGame() {
   start_SceneBedroom();
   mouseFlashLight_getXY();
   fadeInAnimation(75);
+  safeBoxSetup();
   await delay(2250);
   document.getElementById("start_Game_BGM").pause();
 }
@@ -197,6 +196,6 @@ function setup() {
   CharacterSetup();
   dialogBoxSetup();
   colorAndInventSetup();
-  BtnSuccess_SoundSetup()
-  PressE2Interact_LabelSetup()
+  BtnSuccess_SoundSetup();
+  PressE2Interact_LabelSetup();
 }

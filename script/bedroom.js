@@ -1,8 +1,9 @@
 let bedroom_Bed,bedroom_pcDesk,bedroom_date,bedroom_bookshelf
-let bedroom_chair
+let bedroom_chair, bedroom_closet, bedroom_door
 function start_SceneBedroom() {
-    MoveBorder = ["bedroom_Bed","bedroom_pcDesk","safeBox","bedroom_date","bedroom_bookshelf","bedroom_chair"]; // 各個物件
-    PressEBorder = [0,1,2,3,4]
+    MoveBorder = ["bedroom_Bed","bedroom_pcDesk","safeBox","bedroom_date","bedroom_bookshelf","bedroom_chair"
+                ,"bedroom_closet"]; // 各個物件
+    PressEBorder = [0,1,2,3,4,6]
     WallBorder = [15,85,15,85] // 牆壁
     RoomWall = createImg("image/white_background.png", "RoomWall");
     RoomWall.style("position:absolute;top:15%;left:15%;width:70%;height:70%;");
@@ -31,11 +32,19 @@ function start_SceneBedroom() {
     bedroom_bookshelf.show()
 
     bedroom_chair = createImg("image/bedroom_chair.png","bed")
-    bedroom_chair.style("position:absolute;top:35%;left:50%;width:5%;height:5%;");
+    bedroom_chair.style("position:absolute;top:32%;left:50%;width:5%;height:5%;");
     bedroom_chair.attribute("id","bedroom_chair")
     bedroom_chair.show()
 
+    bedroom_closet = createImg("image/bedroom_closet.png","bed")
+    bedroom_closet.style("position:absolute;top:75%;left:15%;width:20%;height:10%;");
+    bedroom_closet.attribute("id","bedroom_closet")
+    bedroom_closet.show()
 
+    bedroom_door = createImg("image/bedroom_door.png","bed")
+    bedroom_door.style("position:absolute;top:55%;left:82%;width:3%;height:20%;");
+    bedroom_door.attribute("id","bedroom_door")
+    bedroom_door.show()
   
     inventoryButton.show();
     colorButton.show();

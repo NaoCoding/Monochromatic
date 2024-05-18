@@ -23,8 +23,66 @@ function safeBoxSetup() {
 function updateProgressBar(progressBar, percentage) {
   progressBar.style("width", `${percentage}%`);
 }
+// 請輸入 top 和 left 和 width 和 height 和色碼和三個秒數。
+async function ProgressBar_generator(
+  _top,
+  _left,
+  _width,
+  _height,
+  _color,
+  sec1,
+  sec2,
+  sec3
+) {
+  // 遊戲進度
+  let progressContainer = createDiv("");
+  progressContainer.style("position", "absolute");
+  progressContainer.style(
+    "top:" + _top.toString() + "%" + "; left: " + _top.toString() + "%"
+  );
+  progressContainer.style(
+    "width:" + _width.toString() + "%" + ";height: " + _top.toString() + "%"
+  );
+  progressContainer.style("display: flex; align-items: center");
+
+  // 進度條
+  let progressBarContainer = createDiv("");
+  progressBarContainer.parent(progressContainer);
+  progressBarContainer.style(
+    "width:" + _width.toString() + "%" + ";height: " + _top.toString() + "%"
+  );
+  progressBarContainer.style("background-color", "#ddd");
+  progressBarContainer.style("border-radius", "10px");
+
+  let progressBar = createDiv("");
+  progressBar.parent(progressBarContainer);
+  progressBar.style("width: 0%; height: 100%"); // 這邊是改進度的地方呦，提醒我自己是把參數傳過來這邊，不然找步道 QQ
+  progressBar.style("background-color", "#" + _color.toString());
+  progressBar.style("border-radius", "10px");
+  let sec = sec1 + sec2 + sec3;
+  progressBar.style("transition", "width " + sec.toString());
+
+  setTimeout(() => {
+    updateProgressBar(progressBar, sec1);
+  }, 1000);
+
+  // 在2秒後將進度條設置為75%
+  setTimeout(() => {
+    updateProgressBar(progressBar, sec2);
+  }, 2000);
+
+  // 在3秒後將進度條設置為100%
+  setTimeout(() => {
+    updateProgressBar(progressBar, sec3);
+  }, 3000);
+  await delay(sec);
+  progressBar.hide();
+  progressBarContainer.hide();
+  progressContainer.hide();
+}
 
 async function safeBoxTrigger() {
+  isControlingCharacter = 0;
   dialogBox.show();
   dialogBoxFunction(
     "Are you looking for some secret? Press Y for yes, N for no."
@@ -39,7 +97,7 @@ async function safeBoxTrigger() {
 
   if (userConfirmed) {
     console.log("User pressed Y");
-    if (touchSafeBox == 0) touchSafeBox = 2;
+    if (touchSafeBox == 0) touchSafeBox = 1;
     dialogBox.show();
     if (touchSafeBox != 2) {
       dialogBoxFunction("Sorry you don't have the key! Go find the key!");
@@ -49,44 +107,8 @@ async function safeBoxTrigger() {
       dialogBoxFunction("Let me check your key for a few second....");
       await delay(4000);
       dialogBox.hide();
-      // 遊戲進度
-      let progressContainer = createDiv("");
-      progressContainer.style("position", "absolute");
-      progressContainer.style("top: 50%; left: 36%");
-      progressContainer.style("width: 40%; height: 15%");
-      progressContainer.style("display: flex; align-items: center");
 
-      // 進度條
-      let progressBarContainer = createDiv("");
-      progressBarContainer.parent(progressContainer);
-      progressBarContainer.style("width: 40%; height: 15%");
-      progressBarContainer.style("background-color", "#ddd");
-      progressBarContainer.style("border-radius", "10px");
-
-      let progressBar = createDiv("");
-      progressBar.parent(progressBarContainer);
-      progressBar.style("width: 0%; height: 100%"); // 這邊是改進度的地方呦，提醒我自己是把參數傳過來這邊，不然找步道 QQ
-      progressBar.style("background-color", "#4caf50");
-      progressBar.style("border-radius", "10px");
-      progressBar.style("transition", "width 4s");
-
-      setTimeout(() => {
-        updateProgressBar(progressBar, 50);
-      }, 1000);
-
-      // 在2秒後將進度條設置為75%
-      setTimeout(() => {
-        updateProgressBar(progressBar, 75);
-      }, 2000);
-
-      // 在3秒後將進度條設置為100%
-      setTimeout(() => {
-        updateProgressBar(progressBar, 100);
-      }, 3000);
-      await delay(7000);
-      progressBar.hide();
-      progressBarContainer.hide();
-      progressContainer.hide();
+      await ProgressBar_generator(50, 36, 40, 15, 808081, 1000, 2000, 3000);
 
       dialogBox.show();
       dialogBoxFunction("The safe box was successfully opened!");
@@ -103,4 +125,5 @@ async function safeBoxTrigger() {
     dialogBox.hide();
     if (touchSafeBox == 0) touchSafeBox = 0;
   }
+  isControlingCharacter = 1;
 }

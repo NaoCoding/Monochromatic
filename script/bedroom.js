@@ -124,6 +124,8 @@ async function bedroom_pcDeskDialogBox(){
     dialogBox.hide()
     isControlingCharacter = 1
 
+  inventoryButton.show();
+  colorButton.show();
 }
 
 async function bedroom_DoorDialogBox(){

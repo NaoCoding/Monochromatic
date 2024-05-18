@@ -121,6 +121,7 @@ async function bedroom_safeBoxTrigger() {
       dialogBoxFunction("This is the key for you. Go ahead!");
       await delay(3000);
       dialogBox.hide();
+      safeBoxKeyState = 0;
       touchSafeBox = 3
     }
     else{

@@ -38,10 +38,10 @@ async function ProgressBar_generator(
   let progressContainer = createDiv("");
   progressContainer.style("position", "absolute");
   progressContainer.style(
-    "top:" + _top.toString() + "%" + "; left: " + _top.toString() + "%"
+    "top:" + _top.toString() + "%" + "; left: " + _left.toString() + "%"
   );
   progressContainer.style(
-    "width:" + _width.toString() + "%" + ";height: " + _top.toString() + "%"
+    "width:" + _width.toString() + "%" + ";height: " + _height.toString() + "%"
   );
   progressContainer.style("display: flex; align-items: center");
 
@@ -49,7 +49,7 @@ async function ProgressBar_generator(
   let progressBarContainer = createDiv("");
   progressBarContainer.parent(progressContainer);
   progressBarContainer.style(
-    "width:" + _width.toString() + "%" + ";height: " + _top.toString() + "%"
+    "width:" + _width.toString() + "%" + ";height: " + _height.toString() + "%"
   );
   progressBarContainer.style("background-color", "#ddd");
   progressBarContainer.style("border-radius", "10px");
@@ -60,21 +60,22 @@ async function ProgressBar_generator(
   progressBar.style("background-color", "#" + _color.toString());
   progressBar.style("border-radius", "10px");
   let sec = sec1 + sec2 + sec3;
-  progressBar.style("transition", "width " + sec.toString());
+  console.log(sec.toString())
+  progressBar.style("transition", "width 4s");
 
   setTimeout(() => {
-    updateProgressBar(progressBar, sec1);
-  }, 1000);
+    updateProgressBar(progressBar, 50);
+  }, sec1);
 
   // 在2秒後將進度條設置為75%
   setTimeout(() => {
-    updateProgressBar(progressBar, sec2);
-  }, 2000);
+    updateProgressBar(progressBar, 75);
+  }, sec2);
 
   // 在3秒後將進度條設置為100%
   setTimeout(() => {
-    updateProgressBar(progressBar, sec3);
-  }, 3000);
+    updateProgressBar(progressBar, 100);
+  }, sec3);
   await delay(sec);
   progressBar.hide();
   progressBarContainer.hide();
@@ -97,7 +98,7 @@ async function safeBoxTrigger() {
 
   if (userConfirmed) {
     console.log("User pressed Y");
-    if (touchSafeBox == 0) touchSafeBox = 1;
+    if (touchSafeBox == 0) touchSafeBox = 2;
     dialogBox.show();
     if (touchSafeBox != 2) {
       dialogBoxFunction("Sorry you don't have the key! Go find the key!");

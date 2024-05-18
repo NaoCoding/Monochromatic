@@ -131,8 +131,8 @@ async function colordisplay(){
             livingroom_tv.attribute("src","image/"+cct[ColorStatus]+"livingroom_tv.png")
         }
         if(ScreenNow == 1){
-            bedroom_Bed.attribute("src","image/"+cct[ColorStatus]+"bedroom_Bed.png")
-            bedroom_pcDesk.attribute("src","image/"+cct[ColorStatus]+"bedroom_pcDesk.png")
+            bedroom_Bed.attribute("src","image/"+cct[ColorStatus]+"bedroom_bed.png")
+            bedroom_pcDesk.attribute("src","image/"+cct[ColorStatus]+"bedroom_pcdesk.png")
             bedroom_date.attribute("src","image/"+cct[ColorStatus]+"bedroom_date.png")
             bedroom_bookshelf.attribute("src","image/"+cct[ColorStatus]+"bedroom_bookshelf.png")
             bedroom_chair.attribute("src","image/"+cct[ColorStatus]+"bedroom_chair.png")

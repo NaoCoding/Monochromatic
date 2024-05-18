@@ -21,9 +21,13 @@ function PressEtoInteractShow() {
 
 function InteractObject(idx) {
   canInteract = -1;
-  if (MoveBorder[idx] == "bedroom_Bed") BedDialogBox();
-  else if (MoveBorder[idx] == "bedroom_pcDesk") pcDeskDialogBox();
-  else if (MoveBorder[idx] == "safeBox") safeBoxTrigger();
+  if (MoveBorder[idx] == "bedroom_Bed") bedroom_BedDialogBox();
+  else if (MoveBorder[idx] == "bedroom_pcDesk") bedroom_pcDeskDialogBox();
+  else if (MoveBorder[idx] == "safeBox") bedroom_safeBoxTrigger();
+  else if(MoveBorder[idx] == "bedroom_closet") bedroom_ClosetDialogBox();
+  else if(MoveBorder[idx] == "bedroom_date") bedroom_DateDialogBox();
+  else if(MoveBorder[idx] == "bedroom_bookshelf") bedroom_BookSheifDialogBox()
+  else if(MoveBorder[idx] == "bedroom_door") bedroom_DoorDialogBox()
 }
 
 canInteract = -1;

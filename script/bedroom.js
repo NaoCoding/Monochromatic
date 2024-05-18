@@ -1,9 +1,25 @@
 let bedroom_Bed,bedroom_pcDesk,bedroom_date,bedroom_bookshelf
 let bedroom_chair, bedroom_closet, bedroom_door
+ClosetTouchTime = 0
+haveDiary  = 0
+haveBedRoomKey = 0
+
+function hideBedRoom(){
+    bedroom_Bed.hide()
+    bedroom_pcDesk.hide()
+    bedroom_date.hide()
+    bedroom_bookshelf.hide()
+    bedroom_chair.hide()
+    bedroom_closet.hide()
+    bedroom_door.hide()
+    safeBox.hide()
+
+}
+
 function start_SceneBedroom() {
     MoveBorder = ["bedroom_Bed","bedroom_pcDesk","safeBox","bedroom_date","bedroom_bookshelf","bedroom_chair"
-                ,"bedroom_closet"]; // 各個物件
-    PressEBorder = [0,1,2,3,4,6]
+                ,"bedroom_closet","bedroom_door"]; // 各個物件
+    PressEBorder = [0,1,2,3,4,6,7]
     WallBorder = [15,85,15,85] // 牆壁
     RoomWall = createImg("image/white_background.png", "RoomWall");
     RoomWall.style("position:absolute;top:15%;left:15%;width:70%;height:70%;");
@@ -50,7 +66,33 @@ function start_SceneBedroom() {
     colorButton.show();
   }
 
-async function pcDeskDialogBox(){
+
+async function bedroom_DateDialogBox(){
+    
+    isControlingCharacter = 0
+    dialogBox.show()
+
+    if(haveDiary == 1){
+        dialogBoxFunction("2024/05/21")
+        await delay(1500)
+        dialogBoxFunction("It's the day for family vacation")
+        await delay(2750)
+        dialogBoxFunction("All the doors are locked, spare key are placed under the bed")
+        await delay(4000)
+        haveDiary = 2
+    }
+    else{
+        dialogBoxFunction("Today is 2024/05/21")
+        await delay(2000)
+    }
+
+    dialogBox.hide()
+    isControlingCharacter = 1
+
+}
+
+
+async function bedroom_pcDeskDialogBox(){
     isControlingCharacter = 0
     dialogBox.show()
 
@@ -83,19 +125,105 @@ async function pcDeskDialogBox(){
 
 }
 
-async function BedDialogBox(){
+async function bedroom_DoorDialogBox(){
+
+    isControlingCharacter = 0
+    dialogBox.show()
+
+    if(haveBedRoomKey == 1){
+        haveBedRoomKey = 2
+        dialogBoxFunction("You opened the door")
+        await delay(2000)
+        fadeOutAnimation(75);
+        await delay(1500);
+        hideBedRoom()
+        start_SceneLivingRoom()
+
+        fadeInAnimation(75);
+        await delay(1000);
+        
+    }
+    else if(haveBedRoomKey == 0){
+        dialogBoxFunction("The Door is Closed")
+        await delay(2000)
+    }
+    else{
+        start_SceneLivingRoom()
+    }
+
+
+
+
+    dialogBox.hide()
+    isControlingCharacter = 1
+
+}
+
+async function bedroom_ClosetDialogBox(){
+
+    isControlingCharacter = 0
+    dialogBox.show()
+
+    if(touchSafeBox < 2){
+        ClosetTouchTime += 1
+        if(ClosetTouchTime < 5){
+            var s = ""
+            for(var i=0;i<ClosetTouchTime;i++) s+= '!'
+            dialogBoxFunction("Don't touch me" + s)
+            await delay(1500 + ClosetTouchTime * 150)
+        }
+        else if(ClosetTouchTime == 5){
+            dialogBoxFunction("You are a joke LOL")
+            await delay(2000)
+        }
+        else{
+            dialogBoxFunction("I don't have other jokes for you...")
+            await delay(3000)
+        }
+    }
+    else{
+        haveDiary = 1
+        
+    }
+
+
+    dialogBox.hide()
+    isControlingCharacter = 1
+
+}
+
+async function bedroom_BookSheifDialogBox(){
+
     isControlingCharacter = 0
     dialogBox.show()
 
     
-    dialogBoxFunction("This is where I slept!?")
-    await delay(2000)
-    dialogBoxFunction("I can't remember anything!")
-    await delay(2750)
-    dialogBoxFunction("The room seems weird and horrible....")
-    await delay(3500)
-    dialogBoxFunction("I must get out the room as fast as possible...")
-    await delay(4000)
+    dialogBoxFunction("I prefer red more than black and white")
+    await delay(3000)
+
+    dialogBox.hide()
+    isControlingCharacter = 1
+
+}
+
+async function bedroom_BedDialogBox(){
+    isControlingCharacter = 0
+    dialogBox.show()
+
+    if(haveDiary != 2){
+        dialogBoxFunction("This is where I slept!?")
+        await delay(2000)
+        dialogBoxFunction("I can't remember anything!")
+        await delay(2750)
+        dialogBoxFunction("The room seems weird and horrible....")
+        await delay(3500)
+        dialogBoxFunction("I must get out the room as fast as possible...")
+        await delay(4000)
+    }
+    else{
+        haveBedRoomKey = 1
+    }
+    
     dialogBox.hide()
     isControlingCharacter = 1
 }

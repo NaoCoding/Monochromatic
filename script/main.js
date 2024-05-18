@@ -48,6 +48,28 @@ async function dev(e) {
     await delay(1000);
     background.attribute("src", "image/white_background.png");
   }
+  else if(e == 2){
+
+    isMainScreen = 0;
+    isControlingCharacter = 1;
+    main_menu_startGameBtn.hide();
+    main_menu_titleLabel.hide();
+    main_menu_GitHubBtn.hide();
+    main_menu_startGameBtn.hide();
+    main_menu_titleLabel.hide();
+    main_menu_GitHubBtn.hide();
+    dialogBox.hide();
+    mainCharacter.show();
+    FlashLightWhite.show();
+    start_SceneBedroom();
+    safeBoxSetup();
+    FlashLightWhite_getXY();
+    haveBedRoomKey = 1
+    haveDiary  = 2
+    touchSafeBox = 2
+    bedroom_DoorDialogBox()
+    background.attribute("src", "image/white_background.png");
+  }
 }
 
 async function startGame() {
@@ -61,6 +83,7 @@ async function startGame() {
   document.getElementById("start_Game_BGM").play();
   fadeOutAnimation(75);
   await delay(1500);
+
 
   background.attribute("src", "image/black_background.png");
   main_menu_startGameBtn.hide();

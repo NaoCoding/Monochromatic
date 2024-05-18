@@ -104,6 +104,7 @@ async function bedroom_safeBoxTrigger() {
     if (touchSafeBox == 0) touchSafeBox = 1;
     dialogBox.show();
     if (touchSafeBox < 2) {
+      computerKeyState = 1;
       dialogBoxFunction("Sorry you don't have the password! Go find the password!");
       await delay(4000);
       dialogBox.hide();
@@ -111,7 +112,7 @@ async function bedroom_safeBoxTrigger() {
       dialogBoxFunction("Let me check your password for a few second....");
       await delay(4000);
       dialogBox.hide();
-
+      closetKeyState = 1;
       await ProgressBar_generator(50, 36, 40, 15, 808081, 1000, 2000, 3000);
 
       dialogBox.show();
@@ -128,7 +129,7 @@ async function bedroom_safeBoxTrigger() {
       dialogBox.hide();
     }
   } else {
-    //console.log("User did not press Y");
+    computerKeyState = 1;
     dialogBox.show();
     dialogBoxFunction("Good luck and goodbye!");
     await delay(3000);

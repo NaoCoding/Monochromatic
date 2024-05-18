@@ -3,6 +3,8 @@ let bedroom_chair, bedroom_closet, bedroom_door
 ClosetTouchTime = 0
 haveDiary  = 0
 haveBedRoomKey = 0
+// 目前持有的所有內容
+
 
 function hideBedRoom(){
     bedroom_Bed.hide()
@@ -13,7 +15,6 @@ function hideBedRoom(){
     bedroom_closet.hide()
     bedroom_door.hide()
     safeBox.hide()
-
 }
 
 function showBedRoom(){
@@ -120,6 +121,7 @@ async function bedroom_pcDeskDialogBox(){
     }
     else if(touchSafeBox >= 1){
         touchSafeBox = 2
+        safeBoxKeyState = 1;
         dialogBoxFunction("This is a computer")
         await delay(2000)
         dialogBoxFunction("Yes, it is a computer...")
@@ -216,6 +218,7 @@ async function bedroom_ClosetDialogBox(){
     }
     else if(haveDiary == 0){
         haveDiary = 1
+        diaryState = 1;
         dialogBoxFunction("I think you may need this diary");
         await delay(3000);
         await ProgressBar_generator(55, 25, 40, 15, 808081, 1000, 2000, 3000);
@@ -270,6 +273,7 @@ async function bedroom_BedDialogBox(){
         haveDiary = 3
         haveBedRoomKey = 1
         dialogBoxFunction("I think you may need this screct key");
+        bedroomKeyState = 1;
         await delay(3000);
         await ProgressBar_generator(30, 15, 40, 15, 808081, 1000, 2000, 3000);
     }

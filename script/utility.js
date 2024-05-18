@@ -2,9 +2,15 @@
 async function toggleInventory() {
   document.getElementById("BtnSuccess_Sound").play();
   if (showInventory) {
+    update_inventory();
+    console.log(computerKeyState);
     inventoryWindow.hide();
+    InventoryInterface();
   } else {
+    update_inventory();
+    InventoryInterface();
     inventoryWindow.show();
+    
   }
   showInventory = !showInventory;
   await delay(500)
@@ -22,6 +28,7 @@ function ColorChangedButton(button) {
     `url('image/colorChanged0.png') no-repeat center center white`
   );
   button.style("background-size", "contain");
+  button.style("background-color", "white");
   button.style("width: 80px; height: 80px");
   button.style("border: none; border-radius: 20px");
   button.style("box-shadow", "0 4px 8px rgba(0, 0, 0, 0.2)");

@@ -179,8 +179,12 @@ async function bedroom_ClosetDialogBox(){
             await delay(1500 + ClosetTouchTime * 150)
         }
         else if(ClosetTouchTime == 5){
-            dialogBoxFunction("You are a joke LOL")
+            dialogBoxFunction("I told you don't touch me, Idiot")
+            await delay(3000)
+            dialogBoxFunction("Let me tell you a joke")
             await delay(2000)
+            dialogBoxFunction("You!")
+            await delay(1000)
         }
         else{
             dialogBoxFunction("I don't have other jokes for you...")

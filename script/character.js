@@ -15,7 +15,7 @@ function CharacterBtnDetection(e){
     var moveSpeed = 1
 
     if(isControlingCharacter == 1){
-        mouseFlashLight_getXY();
+        FlashLightWhite_getXY();
         var left = parseFloat(c.style.left)
         var top = parseFloat(c.style.top)
         var width = parseFloat(c.style.width)
@@ -23,11 +23,17 @@ function CharacterBtnDetection(e){
 
         if(e.which == 69){
             if(canInteract != -1){
+                document.getElementById("pressESound").volume = 0.1
+                document.getElementById("pressESound").play();
                 InteractObject(canInteract)
             }
         }
 
         if(e.which == 65){
+            c.src = "image/mainCharacterside" + moveAnimationArr[moveIDX] + ".png"
+            moveIDX += 1
+            mainCharacter.style("transform:scaleX(1);")
+            if(moveIDX > 19) moveIDX = 0
             c.style.left = (parseFloat(c.style.left) - (moveSpeed * windowHeight / windowWidth)).toString() + "%"
             for(var i=0;i<MoveBorder.length;i++){
                 rect2 = document.getElementById(MoveBorder[i]).getBoundingClientRect()
@@ -57,6 +63,11 @@ function CharacterBtnDetection(e){
 
         if(e.which == 68){
             c.style.left = (parseFloat(c.style.left) + (moveSpeed * windowHeight / windowWidth)).toString() + "%"
+            c.src = "image/mainCharacterside" + moveAnimationArr[moveIDX] + ".png"
+            moveIDX += 1
+            mainCharacter.style("transform:scaleX(-1);")
+            if(moveIDX > 19) moveIDX = 0
+            
             for(var i=0;i<MoveBorder.length;i++){
                 rect2 = document.getElementById(MoveBorder[i]).getBoundingClientRect()
                 if(!(

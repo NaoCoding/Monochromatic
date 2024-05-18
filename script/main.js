@@ -1,4 +1,4 @@
-let mouseFlashLight; // 滑鼠手電筒
+let FlashLightWhite; // 滑鼠手電筒
 let background; // 背景
 let main_menu_startGameBtn; // 開始遊戲按鈕
 let main_menu_GitHubBtn; // 開始畫面Github Repo Btn
@@ -40,11 +40,10 @@ async function dev(e) {
     main_menu_GitHubBtn.hide();
     dialogBox.hide();
     mainCharacter.show();
-    mouseFlashLight.show();
+    FlashLightWhite.show();
     start_SceneBedroom();
     safeBoxSetup();
-    // safeBoxTrigger();
-    mouseFlashLight_getXY();
+    FlashLightWhite_getXY();
     fadeInAnimation(75);
     await delay(1000);
     background.attribute("src", "image/white_background.png");
@@ -97,10 +96,10 @@ async function startGame() {
 
   dialogBox.hide();
   mainCharacter.show();
-  mouseFlashLight.show();
+  FlashLightWhite.show();
   start_SceneBedroom();
   safeBoxSetup();
-  mouseFlashLight_getXY();
+  FlashLightWhite_getXY();
   fadeInAnimation(75);
   await delay(2250);
   document.getElementById("start_Game_BGM").pause();
@@ -119,9 +118,9 @@ function main_menu() {
   background.style("zIndex", "-1");
   background.show();
 
-  mouseFlashLight = createElement("div");
-  mouseFlashLight.attribute("id", "mouseFlashLight");
-  mouseFlashLight.hide();
+  FlashLightWhite = createElement("div");
+  FlashLightWhite.attribute("id", "FlashLightWhite");
+  FlashLightWhite.hide();
   document.body.style.cursor = "auto";
 
   main_menu_startGameBtn = createImg(

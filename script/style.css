@@ -8,11 +8,11 @@ body{
     cursor:none;
 }
 
-#mouseFlashLight{
+#FlashLightWhite{
     --Xpos: 50vw;
     --Ypos: 50vh;
 }
-#mouseFlashLight::before{
+#FlashLightWhite::before{
     content:"";
     display:block;
     width:100%;

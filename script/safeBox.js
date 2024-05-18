@@ -70,17 +70,17 @@ async function safeBoxTrigger() {
       progressBar.style("transition", "width 4s");
 
       setTimeout(() => {
-        updateProgressBar(50);
+        updateProgressBar(progressBar, 50);
       }, 1000);
 
       // 在2秒後將進度條設置為75%
       setTimeout(() => {
-        updateProgressBar(75);
+        updateProgressBar(progressBar, 75);
       }, 2000);
 
       // 在3秒後將進度條設置為100%
       setTimeout(() => {
-        updateProgressBar(100);
+        updateProgressBar(progressBar, 100);
       }, 3000);
     }
   } else {

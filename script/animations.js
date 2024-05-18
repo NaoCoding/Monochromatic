@@ -1,5 +1,5 @@
-let mouseFlashLight_xpos = 0;
-let mouseFlashLight_ypos = 0;
+let FlashLightWhite_xpos = 0;
+let FlashLightWhite_ypos = 0;
 
 async function story_tellFunction(target) {
   story_tellLabel.html("", 0);
@@ -13,8 +13,8 @@ async function story_tellFunction(target) {
     t += 1;
   }, 50);
 }
-
 async function dialogBoxFunction(target) {
+  document.getElementById("typingSound").play();
   dialogBox.html("&emsp;", 0);
   var t = 0;
   var q = setInterval(() => {
@@ -25,18 +25,23 @@ async function dialogBoxFunction(target) {
     }
     t += 1;
   }, 50);
+  while (target.length != t) {
+    await delay(0.05);
+  }
+  document.getElementById("typingSound").pause();
+  document.getElementById("typingSound").currentTime = 0;
 }
 
-function mouseFlashLight_getXY() {
+function FlashLightWhite_getXY() {
   var c = document.getElementById("mainCharacter");
   document
-    .getElementById("mouseFlashLight")
+    .getElementById("FlashLightWhite")
     .style.setProperty(
       "--Xpos",
       parseFloat(c.style.left) + parseFloat(c.style.width) / 2 + "%"
     );
   document
-    .getElementById("mouseFlashLight")
+    .getElementById("FlashLightWhite")
     .style.setProperty(
       "--Ypos",
       parseFloat(c.style.top) + parseFloat(c.style.height) / 2 + "%"

@@ -17,6 +17,7 @@ function hideBedRoom(){
 }
 
 function start_SceneBedroom() {
+    background.hide()
     MoveBorder = ["bedroom_Bed","bedroom_pcDesk","safeBox","bedroom_date","bedroom_bookshelf","bedroom_chair"
                 ,"bedroom_closet","bedroom_door"]; // 各個物件
     PressEBorder = [0,1,2,3,4,6,7]

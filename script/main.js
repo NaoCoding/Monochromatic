@@ -4,6 +4,7 @@ let main_menu_startGameBtn // 開始遊戲按鈕
 let main_menu_GitHubBtn // 開始畫面Github Repo Btn
 let main_menu_titleLabel // 開始畫面遊戲名稱圖片
 let story_tellLabel 
+let start_Game_BGM
 let mainCharacter // 主角
 let dialogBox // 對話框
 
@@ -23,6 +24,8 @@ function start_Scene1(){
 
 async function startGame(){ // 開始遊戲後的過場動畫
 
+    document.getElementById("start_Game_BGM").volume = 0.5
+    document.getElementById("start_Game_BGM").play()
     await delay(1000);
     fadeOutAnimation(75)
     await delay(1500);
@@ -66,6 +69,7 @@ async function startGame(){ // 開始遊戲後的過場動畫
 
     fadeInAnimation(75)
     await delay(2250);
+    document.getElementById("start_Game_BGM").pause();
 
 
     
@@ -142,10 +146,17 @@ function main_menu(){ // 主畫面
 
 }
 
+function preload(){
+
+    
+
+}
 
 function setup(){ // p5.js 開始設定
-
+    
+    
     main_menu()
+    start_GameBGMSetup()
     CharacterSetup()
     dialogBoxSetup()
 

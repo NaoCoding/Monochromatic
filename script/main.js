@@ -180,5 +180,5 @@ function setup(){ // p5.js 開始設定
     start_GameBGMSetup()
     CharacterSetup()
     dialogBoxSetup()
-
+    colorAndInventSetup()
 }

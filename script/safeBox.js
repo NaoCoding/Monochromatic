@@ -27,7 +27,9 @@ function updateProgressBar(progressBar, percentage) {
 
 async function safeBoxTrigger() {
   dialogBox.show();
-  dialogBoxFunction("Are you looking for some secret?");
+  dialogBoxFunction(
+    "Are you looking for some secret? Press Y for yes, N for no."
+  );
 
   window.resolvePromise = () => {};
   window.addEventListener("keydown", handleKeyDown);
@@ -82,6 +84,17 @@ async function safeBoxTrigger() {
       setTimeout(() => {
         updateProgressBar(progressBar, 100);
       }, 3000);
+      await delay(7000);
+      progressBar.hide();
+      progressBarContainer.hide();
+      progressContainer.hide();
+
+      dialogBox.show();
+      dialogBoxFunction("The safe box was successfully opened!");
+      await delay(3000);
+      dialogBoxFunction("This is the key for you. Go ahead!");
+      await delay(3000);
+      dialogBox.hide();
     }
   } else {
     console.log("User did not press Y");

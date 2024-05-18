@@ -19,6 +19,8 @@ async function story_tellFunction(target){
 
 async function dialogBoxFunction(target){
 
+    
+    document.getElementById("typingSound").play();
     dialogBox.html("&emsp;",0)
     var t = 0
     var q = setInterval(() => {
@@ -30,6 +32,11 @@ async function dialogBoxFunction(target){
         }
         t += 1
     }, 50);
+    while(target.length != t){
+        await delay(0.05)
+    }
+    document.getElementById("typingSound").pause();
+    document.getElementById("typingSound").currentTime = 0
 
 }
 

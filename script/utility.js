@@ -1,11 +1,15 @@
 // 切換道具紀錄背包視窗的顯示與隱藏
-function toggleInventory() {
+async function toggleInventory() {
+  document.getElementById("BtnSuccess_Sound").play();
   if (showInventory) {
     inventoryWindow.hide();
   } else {
     inventoryWindow.show();
   }
   showInventory = !showInventory;
+  await delay(500)
+  document.getElementById("BtnSuccess_Sound").pause();
+  document.getElementById("BtnSuccess_Sound").currentTime = 0;
 }
 // 切換顏色的按鈕外觀
 function ColorChangedButton(button) {

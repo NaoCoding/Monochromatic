@@ -8,6 +8,7 @@ let start_Game_BGM;
 let RoomWall; // 場景邊界
 let mainCharacter; // 主角
 let dialogBox; // 對話框
+let BtnSuccess_Sound
 
 isMainScreen = 1;
 isControlingCharacter = 0; // 偵測是否正在可控制腳色的畫面
@@ -30,10 +31,13 @@ isMainScreen = 1;
 async function startGame() {
   // 開始遊戲後的過場動畫
 
+  
+  document.getElementById("BtnSuccess_Sound").play();
+  await delay(1000);
+  document.getElementById("BtnSuccess_Sound").pause();
+  document.getElementById("BtnSuccess_Sound").currentTime = 0;
   document.getElementById("start_Game_BGM").volume = 0.5;
   document.getElementById("start_Game_BGM").play();
-
-  await delay(1000);
   fadeOutAnimation(75);
   await delay(1500);
 
@@ -73,6 +77,7 @@ async function startGame() {
   mainCharacter.show();
   mouseFlashLight.show();
   start_SceneBedroom();
+  mouseFlashLight_getXY();
   fadeInAnimation(75);
   await delay(2250);
   document.getElementById("start_Game_BGM").pause();
@@ -170,4 +175,5 @@ function setup() {
   CharacterSetup();
   dialogBoxSetup();
   colorAndInventSetup();
+  BtnSuccess_SoundSetup()
 }

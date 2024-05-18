@@ -3,6 +3,7 @@ function CharacterSetup(){
     mainCharacter = createImg("image/mainCharacterfront1.png","mainCharacter")
     mainCharacter.style("position:absolute")
     mainCharacter.style("top:25%;left:30%")
+    mainCharacter.style("zIndex:2")
     mainCharacter.style("width:7%;height:14%;background:transparent")
     mainCharacter.attribute("id","mainCharacter")
     mainCharacter.hide()
@@ -27,7 +28,7 @@ function CharacterBtnDetection(e){
 
         if(e.which == 69){
             if(canInteract != -1){
-                document.getElementById("pressESound").volume = 0.1
+                document.getElementById("pressESound").volume = 0.05
                 document.getElementById("pressESound").play();
                 InteractObject(canInteract)
             }

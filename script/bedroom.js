@@ -87,22 +87,42 @@ async function bedroom_DateDialogBox(){
     isControlingCharacter = 0
     dialogBox.show()
 
-    if(haveDiary == 1){
-        dialogBoxFunction("2024/05/21")
-        await delay(1500)
-        dialogBoxFunction("It's the day for family vacation")
-        await delay(2750)
-        dialogBoxFunction("All the doors are locked, spare key are placed under the bed")
-        await delay(4000)
-        haveDiary = 2
+    if(ColorStatus == 0){
+        if(haveDiary == 1){
+            dialogBoxFunction("2024/05/17")
+            await delay(1500)
+            dialogBoxFunction("It's the day for family vacation")
+            await delay(2750)
+            dialogBoxFunction("All the doors are locked, spare key are placed under the bed")
+            await delay(4000)
+            haveDiary = 2
+            dialogBox.hide()
+            isControlingCharacter = 1
+        }
+        else{
+            dialogBoxFunction("Today is 2024/05/19")
+            await delay(2000)
+            dialogBox.hide()
+            isControlingCharacter = 1
+        }
     }
-    else{
-        dialogBoxFunction("Today is 2024/05/21")
+    else if(ColorStatus == 1){
+        dialogBoxFunction("I hate birthday...")
         await delay(2000)
+        dialogBoxFunction("Dad and Mom never celebrate my birthday...")
+        await delay(3500)
+        dialogBoxFunction("However, they enjoy celebrate 'her' birthday,")
+        await delay(3000)
+        dialogBoxFunction("Like.... Go on a vacation...")
+        await delay(2500)
+
+
+        dialogBox.hide()
+        isControlingCharacter = 1
     }
 
-    dialogBox.hide()
-    isControlingCharacter = 1
+    
+    
 
 }
 

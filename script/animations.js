@@ -119,6 +119,8 @@ async function colordisplay(){
         }
         if(ScreenNow == 2){
             
+            if(ColorStatus == 1) livingroom_footPrint.show()
+            else livingroom_footPrint.hide()
             livingroom_bigTable.attribute("src","image/"+cct[ColorStatus]+"livingroom_bigTable.png")
             livingroom_door2bed.attribute("src","image/"+cct[ColorStatus]+"livingroom_door2bed.png")
             livingroom_door2parent.attribute("src","image/"+cct[ColorStatus]+"livingroom_door2parent.png")

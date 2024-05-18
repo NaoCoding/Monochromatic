@@ -107,6 +107,8 @@ async function bedroom_safeBoxTrigger() {
       computerKeyState = 1;
       dialogBoxFunction("Sorry you don't have the password! Go find the password!");
       await delay(4000);
+      dialogBoxFunction("You received a mystery item...");
+      await delay(2500);
       dialogBox.hide();
     } else if(touchSafeBox==2){
       dialogBoxFunction("Let me check your password for a few second....");

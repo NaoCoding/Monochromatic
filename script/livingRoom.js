@@ -2,6 +2,7 @@ let livingroom_bigTable,livingroom_door2bed
 let livingroom_door2outside,livingroom_door2parent
 let livingroom_flower,livingroom_knife
 let livingroom_photo,livingroom_sova,livingroom_tv
+let livingroom_footPrint
 let photoLabel
 
 ColorStatus = 0
@@ -87,9 +88,15 @@ async function livingroom_sovaDialogBox(){
         }
 
         if(ColorStatus == 0){
-            dialogBoxFunction("You received a TV remote controler...")
-            haveTV = 1
-            await delay(3000)
+            if(haveTV == 0){
+                dialogBoxFunction("You received a TV remote controler...")
+                haveTV = 1
+                await delay(3000)
+            }
+            else{
+                dialogBoxFunction("TV remote controler... what should I watch?")
+                await delay(3500)
+            }
         }
 
         dialogBox.hide()
@@ -133,6 +140,27 @@ async function livingroom_bigTableDialogBox(){
         dialogBox.hide()
         isControlingCharacter = 1
 
+}
+
+async function livingroom_flowerDialogBox(){
+    isControlingCharacter = 0
+    dialogBox.show()
+
+        if(ColorStatus == 1){
+            dialogBoxFunction("Leaves seems differents from I remembered...")
+            await delay(3000)
+        }
+
+        if(ColorStatus == 0){
+            dialogBoxFunction("Three plants, like the color, R, Y ,B")
+            await delay(3000)
+        }
+
+        dialogBox.hide()
+
+
+
+    isControlingCharacter = 1
 }
 
 
@@ -285,6 +313,12 @@ function start_SceneLivingRoom(){
     livingroom_sova.style("position:absolute;top:25%;left:40%;width:7%;height:28%;");
     livingroom_sova.attribute("id","livingroom_sova")
     livingroom_sova.show()
+
+    livingroom_footPrint = createImg("image/red/footprint.png","bed")
+    livingroom_footPrint.style("position:absolute;top:25%;left:70%;width:8%;height:15%;");
+    livingroom_footPrint.style("zIndex:0")
+    livingroom_footPrint.attribute("id","livingroom_footPrint")
+    livingroom_footPrint.hide()
 
 
     livingroom_tv = createImg("image/livingroom_tv.png","bed")

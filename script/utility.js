@@ -19,7 +19,7 @@ function ColorChangedButton(button) {
   //   button.style("background", "linear-gradient(135deg, #42a5f5, #478ed1)");
   button.style(
     "background",
-    `url('image/colorChanged.png') no-repeat center center`
+    `url('image/colorChanged0.png') no-repeat center center white`
   );
   button.style("background-size", "contain");
   button.style("width: 80px; height: 80px");
@@ -63,7 +63,10 @@ function InventoryButton_Style(button) {
 }
 // 點擊到切換顏色的按鈕時會觸發
 function triggerColorChanged() {
-  console.log("trigger color changed");
+  if(isControlingCharacter == 1){
+    if(ColorStatus < UnlockedStatus) ColorStatus += 1;
+    else ColorStatus = 0
+  }
 }
 
 // 背包界面
@@ -106,7 +109,7 @@ function InventoryInterface() {
   char.style("border: 1px solid black");
 
   // 人物名字
-  charName = createDiv("超派大星");
+  charName = createDiv("Wlick");
   charName.parent(charInfo);
   charName.style("position", "absolute");
   charName.style("display: flex; align-items: center; justify-content: center");

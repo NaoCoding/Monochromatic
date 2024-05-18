@@ -11,8 +11,10 @@ let mainCharacter; // 主角
 let dialogBox; // 對話框
 let BtnSuccess_Sound;
 let PressE2Interact_Label;
+let moveHint
 
 isMainScreen = 1;
+ScreenNow = 0
 isControlingCharacter = 0; // 偵測是否正在可控制腳色的畫面
 var MoveBorder = []; // 可移動的邊界( % 為單位), x_left , x_right , y_left , y_right
 var PressEBorder = [];
@@ -31,6 +33,7 @@ isMainScreen = 1;
 
 async function dev(e) {
   if (e == 1) {
+    ScreenNow = 1
     isMainScreen = 0;
     isControlingCharacter = 1;
     main_menu_startGameBtn.hide();
@@ -44,13 +47,14 @@ async function dev(e) {
     FlashLightWhite.show();
     start_SceneBedroom();
     safeBoxSetup();
+    moveHint.show()
     FlashLightWhite_getXY();
     fadeInAnimation(75);
     await delay(1000);
     background.attribute("src", "image/white_background.png");
   }
   else if(e == 2){
-
+    ScreenNow = 2
     isMainScreen = 0;
     isControlingCharacter = 1;
     main_menu_startGameBtn.hide();
@@ -117,7 +121,11 @@ async function startGame() {
   await delay("3000");
   dialogBoxFunction("It's so dark here... Wait, I found a flashlight");
   await delay("3000");
-
+  dialogBoxFunction("I am scared that the battery is dying...");
+  await delay("2500");
+  dialogBoxFunction("I must explore the room and find the light switch...");
+  await delay("3000");
+  moveHint.show()
   dialogBox.hide();
   start_SceneBedroom();
   safeBoxSetup(); 
@@ -131,6 +139,12 @@ async function startGame() {
 
 function main_menu() {
   // 主畫面
+
+  
+  moveHint = createImg("image/pressWASD.png","bed")
+  moveHint.style("position:absolute;top:40%;left:26%;width:15%;height:10%;");
+  moveHint.attribute("id","moveHint")
+  moveHint.hide()
 
   background = createImg("image/main_menu_backGround01.png", "background");
   background.attribute("id", "backgroundBG");

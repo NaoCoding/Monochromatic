@@ -3,15 +3,41 @@ let livingroom_door2outside,livingroom_door2parent
 let livingroom_flower,livingroom_knife
 let livingroom_photo,livingroom_sova,livingroom_tv
 
-isRedUnlocked = 0
+ColorStatus = 0
+UnlockedStatus = 0
+
+function showLivingRoom(){
+    livingroom_bigTable.show()
+    livingroom_tv.show()
+    livingroom_sova.show()
+    livingroom_photo.show()
+    livingroom_knife.show()
+    livingroom_flower.show()
+    livingroom_door2parent.show()
+    livingroom_door2bed.show()
+    livingroom_door2outside.show()
+}
+
+function hideLivingRoom(){
+    livingroom_bigTable.hide()
+    livingroom_tv.hide()
+    livingroom_sova.hide()
+    livingroom_photo.hide()
+    livingroom_knife.hide()
+    livingroom_flower.hide()
+    livingroom_door2parent.hide()
+    livingroom_door2bed.hide()
+    livingroom_door2outside.hide()
+}
 
 async function UnlockRed(){
 
     isControlingCharacter = 0
     
 
-    isRedUnlocked = 1
-    flash_now = "FlashLightRed"
+    ColorStatus = 1
+    UnlockedStatus = 1
+    flash_idx = 1
     FlashLightWhite_getXY()
     fadeOutAnimation(35);
     await delay(1500);
@@ -46,7 +72,7 @@ async function UnlockRed(){
 
 function livingroom_sovaDialogBox(){
 
-    if(isRedUnlocked == 0) UnlockRed()
+    if(UnlockedStatus == 0) UnlockRed()
     else{
         
 
@@ -60,21 +86,35 @@ async function living_roomSovaAnimation(){
     
     var now = 1
     var q = setInterval(() => {
-        if(isRedUnlocked == 1){
-            clearInterval(q)
-            livingroom_sova.attribute("src","image/livingroom_sova.png")
+        now = now == 1 ? 2 : 1;
+        if(ColorStatus == 1){
+            livingroom_sova.attribute("src","image/red/livingroom_sova" + (now).toString() + ".png")
         }
         else{
-            now = now == 1 ? 2 : 1;
             livingroom_sova.attribute("src","image/livingroom_sova" + (now).toString() + ".png")
         }
       }, 100);
 
 }
 
+async function livingroom_door2bedDialogBox(){
+
+
+    showBedRoom()
+    hideLivingRoom()
+    mainCharacter.style("top:58%;left:73%")
+    MoveBorder = ["bedroom_Bed","bedroom_pcDesk","safeBox","bedroom_date","bedroom_bookshelf","bedroom_chair"
+                ,"bedroom_closet","bedroom_door"]; // 各個物件
+    PressEBorder = [0,1,2,3,4,6,7]
+    FlashLightWhite_getXY()
+    ScreenNow = 1
+
+}
+
 
 function start_SceneLivingRoom(){
     
+    ScreenNow = 2
     mainCharacter.style("top:55%;left:20%")
     FlashLightWhite_getXY()
 

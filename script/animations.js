@@ -1,4 +1,5 @@
-var flash_now = "FlashLightWhite"
+var flash_now = ["FlashLightWhite","FlashLightRed"]
+var flash_idx = 0;
 async function story_tellFunction(target) {
   story_tellLabel.html("", 0);
   var t = 0;
@@ -33,13 +34,13 @@ async function dialogBoxFunction(target) {
 function FlashLightWhite_getXY() {
   var c = document.getElementById("mainCharacter");
   document
-    .getElementById(flash_now)
+    .getElementById(flash_now[flash_idx])
     .style.setProperty(
       "--Xpos",
       parseFloat(c.style.left) + parseFloat(c.style.width) / 2 + "%"
     );
   document
-    .getElementById(flash_now)
+    .getElementById(flash_now[flash_idx])
     .style.setProperty(
       "--Ypos",
       parseFloat(c.style.top) + parseFloat(c.style.height) / 2 + "%"
@@ -50,7 +51,10 @@ async function fadeOutAnimation(ms) {
   var t = 1;
   document.body.style.opacity = 1;
   var q = setInterval(() => {
-    if (t <= 0.1) clearInterval(q);
+    if (t <= 0.1){
+        clearInterval(q);
+        t = 0;
+    }
     document.body.style.opacity = t;
     t -= t * 0.1;
   }, ms);
@@ -59,7 +63,9 @@ async function fadeOutAnimation(ms) {
 async function fadeInAnimation(ms) {
   var t = 0.1;
   var q = setInterval(() => {
-    if (t >= 1) clearInterval(q);
+    if (t >= 1){
+        clearInterval(q);
+    }
     document.body.style.opacity = t;
     t += t * 0.1;
   }, ms);
@@ -89,3 +95,52 @@ function delay(n) {
 }
 
 start_menu_BackGroundAnimation();
+
+async function colordisplay(){
+
+    var cct = ["","red/"]
+
+    var q = setInterval(() =>{
+        
+        if(ScreenNow >= 1){
+            colorButton.style(
+                "background",
+                `url('image/colorChanged`+(UnlockedStatus ).toString()+`.png') no-repeat center center white`
+              );
+            colorButton.style("background-size", "contain");
+            
+            
+            document.getElementById(flash_now[flash_idx]).style.display = "none";
+            flash_idx = ColorStatus
+            document.getElementById(flash_now[flash_idx]).style.display = "block";
+            FlashLightWhite_getXY()
+            if(ColorStatus == 1)RoomWall.style("borderColor","rgb(255,0,0)")
+            if(ColorStatus == 0)RoomWall.style("borderColor","rgb(0,0,0)")
+        }
+        if(ScreenNow == 2){
+            
+            livingroom_bigTable.attribute("src","image/"+cct[ColorStatus]+"livingroom_bigTable.png")
+            livingroom_door2bed.attribute("src","image/"+cct[ColorStatus]+"livingroom_door2bed.png")
+            livingroom_door2parent.attribute("src","image/"+cct[ColorStatus]+"livingroom_door2parent.png")
+            livingroom_door2outside.attribute("src","image/"+cct[ColorStatus]+"livingroom_door2outside.png")
+            livingroom_flower.attribute("src","image/"+cct[ColorStatus]+"livingroom_flower.png")
+            livingroom_knife.attribute("src","image/"+cct[ColorStatus]+"livingroom_knife.png")
+            livingroom_photo.attribute("src","image/"+cct[ColorStatus]+"livingroom_photo_label.png")
+            livingroom_tv.attribute("src","image/"+cct[ColorStatus]+"livingroom_tv.png")
+        }
+        if(ScreenNow == 1){
+            bedroom_Bed.attribute("src","image/"+cct[ColorStatus]+"bedroom_Bed.png")
+            bedroom_pcDesk.attribute("src","image/"+cct[ColorStatus]+"bedroom_pcDesk.png")
+            bedroom_date.attribute("src","image/"+cct[ColorStatus]+"bedroom_date.png")
+            bedroom_bookshelf.attribute("src","image/"+cct[ColorStatus]+"bedroom_bookshelf.png")
+            bedroom_chair.attribute("src","image/"+cct[ColorStatus]+"bedroom_chair.png")
+            bedroom_closet.attribute("src","image/"+cct[ColorStatus]+"bedroom_closet.png")
+            bedroom_door.attribute("src","image/"+cct[ColorStatus]+"bedroom_door.png")
+            safeBox.attribute("src","image/"+cct[ColorStatus]+"bedroom_safebox.png")
+        }
+    },100)
+
+
+}
+
+colordisplay()

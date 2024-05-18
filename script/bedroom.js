@@ -16,7 +16,20 @@ function hideBedRoom(){
 
 }
 
+function showBedRoom(){
+    bedroom_Bed.show()
+    bedroom_pcDesk.show()
+    bedroom_date.show()
+    bedroom_bookshelf.show()
+    bedroom_chair.show()
+    bedroom_closet.show()
+    bedroom_door.show()
+    safeBox.show()
+
+}
+
 function start_SceneBedroom() {
+    ScreenNow = 1
     background.hide()
     MoveBorder = ["bedroom_Bed","bedroom_pcDesk","safeBox","bedroom_date","bedroom_bookshelf","bedroom_chair"
                 ,"bedroom_closet","bedroom_door"]; // 各個物件
@@ -154,7 +167,17 @@ async function bedroom_DoorDialogBox(){
         await delay(2000)
     }
     else{
-        start_SceneLivingRoom()
+        showLivingRoom()
+        ScreenNow = 2
+        mainCharacter.style("top:55%;left:20%")
+        FlashLightWhite_getXY()
+    
+        MoveBorder = ["livingroom_bigTable","livingroom_door2bed","livingroom_door2outside","livingroom_door2parent"
+                        ,"livingroom_flower","livingroom_knife","livingroom_photo","livingroom_sova",
+                        "livingroom_tv"]
+        PressEBorder = [0,1,2,3,4,5,6,7,8]
+        
+        hideBedRoom()
     }
 
 

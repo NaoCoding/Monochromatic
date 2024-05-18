@@ -9,6 +9,8 @@ function CharacterSetup(){
 
 }
 
+movedCount = 0
+
 function CharacterBtnDetection(e){
 
     var c = document.getElementById("mainCharacter")
@@ -32,6 +34,7 @@ function CharacterBtnDetection(e){
         }
 
         if(e.which == 65){
+            movedCount += 1
             c.src = "image/mainCharacterside" + moveAnimationArr[moveIDX] + ".png"
             moveIDX += 1
             mainCharacter.style("transform:scaleX(1);")
@@ -65,6 +68,7 @@ function CharacterBtnDetection(e){
         }
 
         if(e.which == 68){
+            movedCount += 1
             c.style.left = (parseFloat(c.style.left) + (moveSpeed * windowHeight / windowWidth)).toString() + "%"
             c.src = "image/mainCharacterside" + moveAnimationArr[moveIDX] + ".png"
             moveIDX += 1
@@ -97,6 +101,7 @@ function CharacterBtnDetection(e){
         }
 
         if(e.which == 87){
+            movedCount += 1
             c.src = "image/mainCharacterback" + moveAnimationArr[moveIDX] + ".png"
             moveIDX += 1
             if(moveIDX > 19) moveIDX = 0
@@ -128,6 +133,7 @@ function CharacterBtnDetection(e){
         }
 
         if(e.which == 83){
+            movedCount += 1
             c.src = "image/mainCharacterfront" + moveAnimationArr[moveIDX] + ".png"
             moveIDX += 1
             if(moveIDX > 19) moveIDX = 0
@@ -155,6 +161,7 @@ function CharacterBtnDetection(e){
             else c.style.top = (parseFloat(c.style.top) - moveSpeed).toString() + "%"
             
         }
+        if(movedCount >= 5) moveHint.hide()
         PressE2Interact_Label.hide()
         canInteract = -1
     }

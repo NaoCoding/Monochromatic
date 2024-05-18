@@ -111,9 +111,9 @@ function CharacterBtnDetection(e){
         }
 
         if(e.which == 83){
-            c.src = "image/mainCharacterfront" + moveAnimationArr[moveIDX]
+            c.src = "image/mainCharacterfront" + moveAnimationArr[moveIDX] + ".png"
             moveIDX += 1
-            if(moveIDX > 3) moveIDX = 0
+            if(moveIDX > 15) moveIDX = 0
             c.style.top = (parseFloat(c.style.top) + moveSpeed).toString() + "%"
             for(var i=0;i<MoveBorder.length;i++){
                 rect2 = document.getElementById(MoveBorder[i]).getBoundingClientRect()
@@ -144,7 +144,7 @@ function CharacterBtnDetection(e){
 
 }
 
-moveAnimationArr = ['1','2','1','3']
+moveAnimationArr = "1111222211113333"
 moveIDX = 0
 
 document.onkeydown = CharacterBtnDetection

@@ -35,6 +35,7 @@ function InteractObject(idx) {
   else if(MoveBorder[idx] == "livingroom_bigTable")livingroom_bigTableDialogBox()
   else if(MoveBorder[idx] == "livingroom_door2outside")livingroom_door2outsideDialogBox()
   else if(MoveBorder[idx] == "livingroom_door2parent")livingroom_door2parentDialogBox()
+  else if(MoveBorder[idx] == "livingroom_photo")livingroom_photoDialogBox()
 }
 
 canInteract = -1;

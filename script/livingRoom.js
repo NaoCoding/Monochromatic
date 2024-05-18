@@ -2,9 +2,11 @@ let livingroom_bigTable,livingroom_door2bed
 let livingroom_door2outside,livingroom_door2parent
 let livingroom_flower,livingroom_knife
 let livingroom_photo,livingroom_sova,livingroom_tv
+let photoLabel
 
 ColorStatus = 0
 UnlockedStatus = 0
+var photoAppear = 1
 
 haveTV = 0
 
@@ -133,6 +135,51 @@ async function livingroom_bigTableDialogBox(){
 
 }
 
+
+async function livingroom_photoDialogBox(){
+
+    isControlingCharacter = 0
+    photoAppear = 1
+    photoLabel.style("zIndex:10000")
+    photoLabel.attribute("onclick","photoAppear = 0")
+    if(ColorStatus == 1)photoLabel.attribute("src","image/red/livingroom_photo.png")
+    else if(ColorStatus == 0)photoLabel.attribute("src","image/livingroom_photo.png")
+    var q =  setInterval(() => {
+        if(photoAppear == 0){
+            clearInterval(q);
+            photoLabel.hide()
+            photoLabel.removeAttribute("onclick")
+            
+        }
+        else photoLabel.show()
+    },50)
+    while(photoAppear == 1){
+        await delay(100)
+    }
+    if(ColorStatus == 1){
+        dialogBox.show()
+        dialogBoxFunction("I finally fulfill my dream, killed them...")
+        await delay(3000)
+        dialogBoxFunction("Wait.... What!? I killed them !?")
+        await delay(3000)
+        dialogBox.hide()
+    }
+    else if(ColorStatus == 0){
+        dialogBox.show()
+        dialogBoxFunction("This is my family. However, it was a terrible memory.")
+        await delay(3500)
+        dialogBoxFunction("When I heard dad said 'Let us take the picture'...")
+        await delay(3250)
+        dialogBoxFunction("They took the picture without waiting me....")
+        await delay(3000)
+        dialogBox.hide()
+    }
+    
+
+    isControlingCharacter = 1
+
+}
+
 async function livingroom_door2outsideDialogBox(){
 
     isControlingCharacter = 0
@@ -244,6 +291,13 @@ function start_SceneLivingRoom(){
     livingroom_tv.style("position:absolute;top:30%;left:15%;width:4%;height:18%;");
     livingroom_tv.attribute("id","livingroom_tv")
     livingroom_tv.show()
+
+
+    photoLabel = createImg("image/livingroom_tv.png","bed")
+    photoLabel.style("position:absolute;top:0%;left:0%;width:100%;height:100%;");
+    photoLabel.attribute("id","livingroom_tv")
+    photoLabel.hide()
+    
 
 
 

@@ -142,6 +142,7 @@ async function bedroom_pcDeskDialogBox(){
     else if(touchSafeBox >= 1){
         touchSafeBox = 2
         safeBoxKeyState = 1;
+        computerKeyState = 0;
         dialogBoxFunction("This is a computer")
         await delay(2000)
         dialogBoxFunction("Yes, it is a computer...")
@@ -193,7 +194,7 @@ async function bedroom_DoorDialogBox(){
         ScreenNow = 2
         mainCharacter.style("top:55%;left:20%")
         FlashLightWhite_getXY()
-    
+        bedroomKeyState = 0;
         MoveBorder = ["livingroom_bigTable","livingroom_door2bed","livingroom_door2outside","livingroom_door2parent"
                         ,"livingroom_flower","livingroom_knife","livingroom_photo","livingroom_sova",
                         "livingroom_tv"]
@@ -239,6 +240,7 @@ async function bedroom_ClosetDialogBox(){
     else if(haveDiary == 0){
         haveDiary = 1
         diaryState = 1;
+        closetKeyState = 0;
         dialogBoxFunction("I think you may need this diary");
         await delay(3000);
         await ProgressBar_generator(55, 25, 40, 15, 808081, 1000, 2000, 3000);

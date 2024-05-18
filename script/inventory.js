@@ -1,5 +1,5 @@
 let closetKeyState = 0, diaryState = 0, bedroomKeyState = 0, computerKeyState = 0, safeBoxKeyState = 0;
-inventoryItemBag = [["closet_key.png", 0], ["diary.png", 0], ["door_key.png", 0], ["password_paper.png", 0], ["ToSafeBox.png", 0]];
+inventoryItemBag = [["closet_key.png", 0], ["diary.png", 0], ["door_key.png", 0], ["ToComputer.png", 0], ["password_paper.png", 0]];
 
 
 function update_inventory(){
@@ -43,10 +43,18 @@ async function handleItemClick(itemId) {
             dialogBox.show();
             dialogBoxFunction("I am tired. My life is meaningless.");
             await delay(4000);
+            dialogBoxFunction("Today We went on a vacation, but what day is today?");
+            await delay(4000);
+            dialogBoxFunction("Oh no. My brain can't remember what day it was");
+            await delay(4000);
             dialogBox.hide();
             break;
         case 2:
             console.log("Bedroom Key clicked");
+            dialogBox.show();
+            dialogBoxFunction("Now is time to get out of the roooooom.");
+            await delay(3000);
+            dialogBox.hide();
             break;
         case 3:
             console.log("Password Paper clicked");
@@ -57,6 +65,10 @@ async function handleItemClick(itemId) {
             break;
         case 4:
             console.log("To Safe Box clicked");
+            dialogBox.show();
+            dialogBoxFunction("Maybe somewhere need this key.");
+            await delay(3500);
+            dialogBox.hide();
             break;
         default:
             console.log("Unknown item clicked");
@@ -104,7 +116,7 @@ function InventoryInterface() {
     char.style("border: 1px solid black");
   
     // 人物名字
-    charName = createDiv("超派大星");
+    charName = createDiv("Wlick");
     charName.parent(charInfo);
     charName.style("position", "absolute");
     charName.style("display: flex; align-items: center; justify-content: center");

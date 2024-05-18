@@ -15,7 +15,7 @@ function InteractObject(idx){
     
     canInteract = -1
     if(MoveBorder[idx] == "bedroom_Bed")BedDialogBox()
-
+    else if(MoveBorder[idx] == "bedroom_pcDesk")pcDeskDialogBox()
 
 
 }

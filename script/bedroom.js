@@ -1,7 +1,7 @@
-let bedroom_Bed
+let bedroom_Bed,bedroom_pcDesk
 function start_SceneBedroom() {
-    MoveBorder = ["bedroom_Bed"]; // 各個物件
-    PressEBorder = [0]
+    MoveBorder = ["bedroom_Bed","bedroom_pcDesk"]; // 各個物件
+    PressEBorder = [0,1]
     WallBorder = [15,85,15,85] // 牆壁
     RoomWall = createImg("image/white_background.png", "RoomWall");
     RoomWall.style("position:absolute;top:15%;left:15%;width:70%;height:70%;");
@@ -14,19 +14,39 @@ function start_SceneBedroom() {
     bedroom_Bed.attribute("id","bedroom_Bed")
     bedroom_Bed.show()
 
+    bedroom_pcDesk = createImg("image/bedroom_pcdesk.png","bed")
+    bedroom_pcDesk.style("position:absolute;top:15%;left:45%;width:15%;height:15%;");
+    bedroom_pcDesk.attribute("id","bedroom_pcDesk")
+    bedroom_pcDesk.show()
+
   
     inventoryButton.show();
     colorButton.show();
   }
 
+async function pcDeskDialogBox(){
+    isControlingCharacter = 0
+    dialogBox.show()
+    
+
+
+    dialogBox.hide()
+    isControlingCharacter = 1
+
+}
+
 async function BedDialogBox(){
     isControlingCharacter = 0
     dialogBox.show()
+
+    
     dialogBoxFunction("This is where I slept!?")
     await delay(2000)
     dialogBoxFunction("I can't remember anything!")
     await delay(2750)
     dialogBoxFunction("The room seems weird and horrible....")
+    await delay(3500)
+    dialogBoxFunction("I must get out the room as fast as possible...")
     await delay(4000)
     dialogBox.hide()
     isControlingCharacter = 1

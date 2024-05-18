@@ -19,7 +19,7 @@ async function story_tellFunction(target){
 
 async function dialogBoxFunction(target){
 
-    dialogBox.html("",0)
+    dialogBox.html("&emsp;",0)
     var t = 0
     var q = setInterval(() => {
         if(target.length == t){

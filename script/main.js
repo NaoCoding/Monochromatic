@@ -43,11 +43,7 @@ async function dev(e) {
     mouseFlashLight.show();
     start_SceneBedroom();
     safeBoxSetup();
-<<<<<<< HEAD
     // safeBoxTrigger();
-=======
-    safeBoxTrigger();
->>>>>>> 2a83ec8 (chore: merge)
     mouseFlashLight_getXY();
     fadeInAnimation(75);
     await delay(1000);

@@ -13,10 +13,9 @@ function handleKeyDown(event) {
 }
 
 function safeBoxSetup() {
-  MoveBorder.push("safeBox"); // 各個物件
-  PressEBorder.push(2);
-  safeBox = createImg("image/safeBox_img.png", "safeBox");
-  safeBox.style("position:absolute;bottom:15%;left:38%;width:12%;height:15%;");
+
+  safeBox = createImg("image/bedroom_safebox.png", "safeBox");
+  safeBox.style("position:absolute;bottom:15%;left:38%;width:10%;height:10%;");
   safeBox.attribute("id", "safeBox");
   safeBox.show();
 }

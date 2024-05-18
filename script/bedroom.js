@@ -1,7 +1,8 @@
-let bedroom_Bed,bedroom_pcDesk
+let bedroom_Bed,bedroom_pcDesk,bedroom_date,bedroom_bookshelf
+let bedroom_chair
 function start_SceneBedroom() {
-    MoveBorder = ["bedroom_Bed","bedroom_pcDesk"]; // 各個物件
-    PressEBorder = [0,1]
+    MoveBorder = ["bedroom_Bed","bedroom_pcDesk","safeBox","bedroom_date","bedroom_bookshelf","bedroom_chair"]; // 各個物件
+    PressEBorder = [0,1,2,3,4]
     WallBorder = [15,85,15,85] // 牆壁
     RoomWall = createImg("image/white_background.png", "RoomWall");
     RoomWall.style("position:absolute;top:15%;left:15%;width:70%;height:70%;");
@@ -9,7 +10,7 @@ function start_SceneBedroom() {
     RoomWall.style("zIndex:-1");
     RoomWall.show();
 
-    bedroom_Bed = createImg("image/bedroom_bedRed.png","bed")
+    bedroom_Bed = createImg("image/bedroom_bed.png","bed")
     bedroom_Bed.style("position:absolute;top:15%;left:15%;width:12%;height:30%;");
     bedroom_Bed.attribute("id","bedroom_Bed")
     bedroom_Bed.show()
@@ -18,6 +19,22 @@ function start_SceneBedroom() {
     bedroom_pcDesk.style("position:absolute;top:15%;left:45%;width:15%;height:15%;");
     bedroom_pcDesk.attribute("id","bedroom_pcDesk")
     bedroom_pcDesk.show()
+
+    bedroom_date = createImg("image/bedroom_date.png","bed")
+    bedroom_date.style("position:absolute;top:82%;left:55%;width:5%;height:3%;");
+    bedroom_date.attribute("id","bedroom_date")
+    bedroom_date.show()
+
+    bedroom_bookshelf = createImg("image/bedroom_bookshelf.png","bed")
+    bedroom_bookshelf.style("position:absolute;top:15%;left:65%;width:20%;height:15%;");
+    bedroom_bookshelf.attribute("id","bedroom_bookshelf")
+    bedroom_bookshelf.show()
+
+    bedroom_chair = createImg("image/bedroom_chair.png","bed")
+    bedroom_chair.style("position:absolute;top:35%;left:50%;width:5%;height:5%;");
+    bedroom_chair.attribute("id","bedroom_chair")
+    bedroom_chair.show()
+
 
   
     inventoryButton.show();

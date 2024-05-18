@@ -17,6 +17,22 @@ async function story_tellFunction(target){
 
 }
 
+async function dialogBoxFunction(target){
+
+    dialogBox.html("",0)
+    var t = 0
+    var q = setInterval(() => {
+        if(target.length == t){
+            clearInterval(q)
+        }
+        else{
+            dialogBox.html(target[t],1)
+        }
+        t += 1
+    }, 50);
+
+}
+
 function mouseFlashLight_getXY(){
     var c = document.getElementById("mainCharacter")
     document.getElementById("mouseFlashLight").style.setProperty("--Xpos",(parseFloat(c.style.left) + parseFloat(c.style.width)/2) + "%")

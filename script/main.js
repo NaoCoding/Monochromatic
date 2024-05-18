@@ -5,6 +5,7 @@ let main_menu_GitHubBtn // 開始畫面Github Repo Btn
 let main_menu_titleLabel // 開始畫面遊戲名稱圖片
 let story_tellLabel 
 let mainCharacter // 主角
+let dialogBox // 對話框
 
 isMainScreen = 1
 isControlingCharacter = 0 // 偵測是否正在可控制腳色的畫面
@@ -47,9 +48,16 @@ async function startGame(){ // 開始遊戲後的過場動畫
 
     fadeInAnimation(75)
     await delay(2250);
-    mainCharacter.show()
+    
     isControlingCharacter = 1
     background.attribute("src","image/white_background.png")
+    dialogBox.show()
+    dialogBoxFunction("Who am I ?? Where is this place ??")
+    await delay("3000")
+
+    
+    dialogBox.hide()
+    mainCharacter.show()
     mouseFlashLight.show()
     start_Scene1()
 
@@ -130,5 +138,6 @@ function setup(){ // p5.js 開始設定
 
     main_menu()
     CharacterSetup()
+    dialogBoxSetup()
 
 }

@@ -4,8 +4,12 @@ let main_menu_startGameBtn // 開始遊戲按鈕
 let main_menu_GitHubBtn // 開始畫面Github Repo Btn
 let main_menu_titleLabel // 開始畫面遊戲名稱圖片
 let story_tellLabel 
+let mainCharacter // 主角
 
 isMainScreen = 1
+isControlingCharacter = 0 // 偵測是否正在可控制腳色的畫面
+MoveBorder  = [0,100,0,100]   // 可移動的邊界( % 為單位), x_left , x_right , y_left , y_right
+
 
 
 // function main_menu() 主畫面
@@ -37,6 +41,16 @@ async function startGame(){ // 開始遊戲後的過場動畫
     story_tellFunction("\"In color, photography is reality; in black and white, it is art.\" - Eddie Adams")
     await delay(7500);
     story_tellLabel.hide()
+    fadeOutAnimation(75)
+    await delay(1500);
+
+
+    fadeInAnimation(75)
+    await delay(2250);
+    mainCharacter.show()
+    isControlingCharacter = 1
+    background.attribute("src","image/white_background.png")
+    mouseFlashLight.show()
     start_Scene1()
 
 }
@@ -115,5 +129,6 @@ function main_menu(){ // 主畫面
 function setup(){ // p5.js 開始設定
 
     main_menu()
+    CharacterSetup()
 
 }

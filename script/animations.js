@@ -1,16 +1,6 @@
 let mouseFlashLight_xpos = 0;
 let mouseFlashLight_ypos = 0;
 
-const mouseFlashLight_TouchDevice = () =>{
-    try{
-        document.createEvent("TouchEvent")
-        return true;
-    }
-    catch (e){
-        return false;
-    }
-}
-
 async function story_tellFunction(target){
 
     story_tellLabel.html("",0)
@@ -27,11 +17,10 @@ async function story_tellFunction(target){
 
 }
 
-function mouseFlashLight_getXY(e){
-    mouseFlashLight_xpos = !mouseFlashLight_TouchDevice() ? e.pageX : e.touches[0].pageX;
-    mouseFlashLight_ypos = !mouseFlashLight_TouchDevice() ? e.pageY : e.touches[0].pageY;
-    document.getElementById("mouseFlashLight").style.setProperty("--Xpos",mouseFlashLight_xpos + "px")
-    document.getElementById("mouseFlashLight").style.setProperty("--Ypos",mouseFlashLight_ypos + "px")
+function mouseFlashLight_getXY(){
+    var c = document.getElementById("mainCharacter")
+    document.getElementById("mouseFlashLight").style.setProperty("--Xpos",(parseFloat(c.style.left) + parseFloat(c.style.width)/2) + "%")
+    document.getElementById("mouseFlashLight").style.setProperty("--Ypos",(parseFloat(c.style.top) + parseFloat(c.style.height)/2) + "%")
 }
 
 async function fadeOutAnimation(ms){
@@ -82,5 +71,5 @@ function delay(n) {
   }
 
 start_menu_BackGroundAnimation();
-document.addEventListener("mousemove",mouseFlashLight_getXY);
-document.addEventListener("touchmove",mouseFlashLight_getXY);
+
+

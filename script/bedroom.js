@@ -244,6 +244,8 @@ async function bedroom_ClosetDialogBox(){
         dialogBoxFunction("I think you may need this diary");
         await delay(3000);
         await ProgressBar_generator(55, 25, 40, 15, 808081, 1000, 2000, 3000);
+        dialogBoxFunction("Open your backpack, check the diary");
+        await delay(2500);
     }
     else{
         dialogBoxFunction("I don't think I have what you need...");

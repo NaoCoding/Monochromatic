@@ -27,6 +27,28 @@ function start_SceneBedroom() {
 async function pcDeskDialogBox(){
     isControlingCharacter = 0
     dialogBox.show()
+
+    if(touchSafeBox == 0){
+        dialogBoxFunction("This is a computer")
+        await delay(2000)
+        dialogBoxFunction("Yes, it is a computer...")
+        await delay(2500)
+        dialogBoxFunction("Undoubtedly, it is a computer...")
+        await delay(3000)
+    }
+    else if(touchSafeBox >= 1){
+        touchSafeBox = 2
+        dialogBoxFunction("This is a computer")
+        await delay(2000)
+        dialogBoxFunction("Yes, it is a computer...")
+        await delay(2500)
+        dialogBoxFunction("Undoubtedly...")
+        await delay(1000)
+        dialogBoxFunction("You receive a safebox password!")
+        await delay(3000)
+
+
+    }
     
 
 

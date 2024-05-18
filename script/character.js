@@ -28,6 +28,10 @@ function CharacterBtnDetection(e){
         }
 
         if(e.which == 65){
+            c.src = "image/mainCharacterside" + moveAnimationArr[moveIDX] + ".png"
+            moveIDX += 1
+            mainCharacter.style("transform:scaleX(1);")
+            if(moveIDX > 19) moveIDX = 0
             c.style.left = (parseFloat(c.style.left) - (moveSpeed * windowHeight / windowWidth)).toString() + "%"
             for(var i=0;i<MoveBorder.length;i++){
                 rect2 = document.getElementById(MoveBorder[i]).getBoundingClientRect()
@@ -57,6 +61,11 @@ function CharacterBtnDetection(e){
 
         if(e.which == 68){
             c.style.left = (parseFloat(c.style.left) + (moveSpeed * windowHeight / windowWidth)).toString() + "%"
+            c.src = "image/mainCharacterside" + moveAnimationArr[moveIDX] + ".png"
+            moveIDX += 1
+            mainCharacter.style("transform:scaleX(-1);")
+            if(moveIDX > 19) moveIDX = 0
+            
             for(var i=0;i<MoveBorder.length;i++){
                 rect2 = document.getElementById(MoveBorder[i]).getBoundingClientRect()
                 if(!(

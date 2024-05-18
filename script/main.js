@@ -39,27 +39,36 @@ async function startGame(){ // 開始遊戲後的過場動畫
     story_tellLabel.show()
     story_tellFunction("\"Color is everything, black and white is more.\" - Dominic Rouse")
     await delay(6000);
-    story_tellFunction("\"In color, photography is reality; in black and white, it is art.\" - Eddie Adams")
-    await delay(7500);
+    //story_tellFunction("\"In color, photography is reality; in black and white, it is art.\" - Eddie Adams")
+    //await delay(7500);
     story_tellLabel.hide()
     fadeOutAnimation(75)
     await delay(1500);
 
+    background.attribute("src","image/white_background.png")
 
     fadeInAnimation(75)
     await delay(2250);
     
     isControlingCharacter = 1
-    background.attribute("src","image/white_background.png")
     dialogBox.show()
     dialogBoxFunction("Who am I ?? Where is this place ??")
     await delay("3000")
 
-    
+    fadeOutAnimation(75)
+    await delay(1500);
+
     dialogBox.hide()
     mainCharacter.show()
     mouseFlashLight.show()
     start_Scene1()
+
+
+    fadeInAnimation(75)
+    await delay(2250);
+
+
+    
 
 }
 

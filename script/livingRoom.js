@@ -6,6 +6,8 @@ let livingroom_photo,livingroom_sova,livingroom_tv
 ColorStatus = 0
 UnlockedStatus = 0
 
+haveTV = 0
+
 function showLivingRoom(){
     livingroom_bigTable.show()
     livingroom_tv.show()
@@ -70,12 +72,26 @@ async function UnlockRed(){
 }
 
 
-function livingroom_sovaDialogBox(){
+async function livingroom_sovaDialogBox(){
 
     if(UnlockedStatus == 0) UnlockRed()
     else{
-        
+        isControlingCharacter = 0
+        dialogBox.show()
 
+        if(ColorStatus == 1){
+            dialogBoxFunction("There is a corpse and large quantity of bloods flowing...")
+            await delay(3000)
+        }
+
+        if(ColorStatus == 0){
+            dialogBoxFunction("You received a TV remote controler...")
+            haveTV = 1
+            await delay(3000)
+        }
+
+        dialogBox.hide()
+        isControlingCharacter = 1
 
     }
 
@@ -94,6 +110,65 @@ async function living_roomSovaAnimation(){
             livingroom_sova.attribute("src","image/livingroom_sova" + (now).toString() + ".png")
         }
       }, 100);
+
+}
+
+async function livingroom_bigTableDialogBox(){
+
+    isControlingCharacter = 0
+        dialogBox.show()
+
+        if(ColorStatus == 1){
+            dialogBoxFunction("I hate my sister, she steal the love from Mom and Dad!")
+            await delay(3000)
+        }
+
+        if(ColorStatus == 0){
+            dialogBoxFunction("We used to eat meals together at this table...")
+            await delay(3000)
+        }
+
+        dialogBox.hide()
+        isControlingCharacter = 1
+
+}
+
+async function livingroom_door2outsideDialogBox(){
+
+    isControlingCharacter = 0
+        dialogBox.show()
+
+        if(ColorStatus == 1){
+            dialogBoxFunction("The door is locked so no one will discover people's death...")
+            await delay(3250)
+        }
+
+        if(ColorStatus == 0){
+            dialogBoxFunction("The door is locked.")
+            await delay(1500)
+        }
+
+        dialogBox.hide()
+        isControlingCharacter = 1
+
+}
+
+async function livingroom_door2parentDialogBox(){
+
+    isControlingCharacter = 0
+        dialogBox.show()
+
+        if(ColorStatus == 1){
+            
+        }
+
+        if(ColorStatus == 0){
+            dialogBoxFunction("The door is locked.")
+            await delay(1500)
+        }
+
+        dialogBox.hide()
+        isControlingCharacter = 1
 
 }
 

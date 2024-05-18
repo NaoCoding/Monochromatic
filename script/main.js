@@ -3,15 +3,41 @@ let background // 背景
 let main_menu_startGameBtn // 開始遊戲按鈕
 let main_menu_GitHubBtn // 開始畫面Github Repo Btn
 let main_menu_titleLabel // 開始畫面遊戲名稱圖片
+let story_tellLabel 
 
 isMainScreen = 1
+
 
 // function main_menu() 主畫面
 // function setup() p5.js 開始設定
 
-async function startGame(){
+function start_Scene1(){
 
-    await delay(1);
+
+}
+
+async function startGame(){ // 開始遊戲後的過場動畫
+
+    await delay(1000);
+    fadeOutAnimation(75)
+    await delay(1500);
+
+    background.attribute("src","image/black_background.png")
+    main_menu_startGameBtn.hide()
+    main_menu_titleLabel.hide()
+    main_menu_GitHubBtn.hide()
+
+    fadeInAnimation(75)
+    await delay(2250);
+
+
+    story_tellLabel.show()
+    story_tellFunction("\"Color is everything, black and white is more.\" - Dominic Rouse")
+    await delay(6000);
+    story_tellFunction("\"In color, photography is reality; in black and white, it is art.\" - Eddie Adams")
+    await delay(7500);
+    story_tellLabel.hide()
+    start_Scene1()
 
 }
 
@@ -68,6 +94,20 @@ function main_menu(){ // 主畫面
     main_menu_titleLabel.style("width","40%")
     main_menu_titleLabel.style("height","22%")
     main_menu_titleLabel.show()
+
+    story_tellLabel = createElement("h2")
+    story_tellLabel.style("top","50%")
+    story_tellLabel.style("left","50%")
+    story_tellLabel.style("width","50%")
+    story_tellLabel.style("height","10%")
+    story_tellLabel.style("transform","translate(-50%,-50%)")
+    story_tellLabel.style("position","absolute")
+    story_tellLabel.style("color","rgb(255,255,255)")
+    story_tellLabel.style("textAlign","center")
+    story_tellLabel.style("fontFamily","cursive")
+    story_tellLabel.style("fontSize","36px")
+
+    story_tellLabel.hide()
 
 }
 

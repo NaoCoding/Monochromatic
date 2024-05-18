@@ -44,6 +44,7 @@ async function ProgressBar_generator(
     "width:" + _width.toString() + "%" + ";height: " + _height.toString() + "%"
   );
   progressContainer.style("display: flex; align-items: center");
+  progressContainer.style("zIndex:100");
 
   // 進度條
   let progressBarContainer = createDiv("");
@@ -53,6 +54,7 @@ async function ProgressBar_generator(
   );
   progressBarContainer.style("background-color", "#ddd");
   progressBarContainer.style("border-radius", "10px");
+  progressBarContainer.style("zIndex:100");
 
   let progressBar = createDiv("");
   progressBar.parent(progressBarContainer);
@@ -62,6 +64,7 @@ async function ProgressBar_generator(
   let sec = sec1 + sec2 + sec3;
   console.log(sec.toString())
   progressBar.style("transition", "width 4s");
+  progressBar.style("zIndex:100");
 
   setTimeout(() => {
     updateProgressBar(progressBar, 50);

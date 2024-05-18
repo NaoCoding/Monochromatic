@@ -191,7 +191,7 @@ async function bedroom_ClosetDialogBox(){
         haveDiary = 1
         dialogBoxFunction("I think you may need this diary");
         await delay(3000);
-        await ProgressBar_generator(70, 28, 40, 15, 808081, 1000, 2000, 3000);
+        await ProgressBar_generator(55, 25, 40, 15, 808081, 1000, 2000, 3000);
     }
 
 

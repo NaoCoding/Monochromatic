@@ -54,27 +54,53 @@ async function dev(e) {
     background.attribute("src", "image/white_background.png");
   }
   else if(e == 2){
-    ScreenNow = 2
-    isMainScreen = 0;
-    isControlingCharacter = 1;
-    main_menu_startGameBtn.hide();
-    main_menu_titleLabel.hide();
-    main_menu_GitHubBtn.hide();
-    main_menu_startGameBtn.hide();
-    main_menu_titleLabel.hide();
-    main_menu_GitHubBtn.hide();
-    dialogBox.hide();
-    mainCharacter.show();
-    FlashLightWhite.show();
-    start_SceneBedroom();
-    safeBoxSetup();
-    FlashLightWhite_getXY();
-    haveBedRoomKey = 1
-    haveDiary  = 2
-    touchSafeBox = 2
-    hideBedRoom()
-    bedroom_DoorDialogBox()
-    background.attribute("src", "image/white_background.png");
+    if(ScreenNow == 0){
+      ScreenNow = 2
+      isMainScreen = 0;
+      isControlingCharacter = 1;
+      main_menu_startGameBtn.hide();
+      main_menu_titleLabel.hide();
+      main_menu_GitHubBtn.hide();
+      main_menu_startGameBtn.hide();
+      main_menu_titleLabel.hide();
+      main_menu_GitHubBtn.hide();
+      dialogBox.hide();
+      mainCharacter.show();
+      FlashLightWhite.show();
+      start_SceneBedroom();
+      safeBoxSetup();
+      FlashLightWhite_getXY();
+      haveBedRoomKey = 1
+      haveDiary  = 3
+      touchSafeBox = 3
+      hideBedRoom()
+      bedroom_DoorDialogBox()
+      background.attribute("src", "image/white_background.png");
+    }
+    else{
+      ScreenNow = 2
+      isMainScreen = 0;
+      isControlingCharacter = 1;
+      dialogBox.hide();
+      mainCharacter.show();
+      FlashLightWhite.show();
+      FlashLightWhite_getXY();
+      haveBedRoomKey = 1
+      haveDiary  = 3
+      touchSafeBox = 3
+      hideBedRoom()
+      bedroom_DoorDialogBox()
+      background.attribute("src", "image/white_background.png");
+    }
+  }
+  else if(e==3){
+    dev(2)
+    ColorStatus = 1
+    UnlockedStatus = 1
+    flash_idx = 1
+    FlashLightWhite.hide()
+    FlashLightRed.show()
+    FlashLightWhite_getXY()
   }
 }
 

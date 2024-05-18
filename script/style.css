@@ -25,7 +25,7 @@ body{
     
 
     background: radial-gradient(
-        circle 15em at var(--Xpos) var(--Ypos),
+        circle 18em at var(--Xpos) var(--Ypos),
         rgba(255, 0, 0, 0),
         rgba(255,0,0,1)
     );
@@ -49,7 +49,7 @@ body{
     
 
     background: radial-gradient(
-        circle 15em at var(--Xpos) var(--Ypos),
+        circle 18em at var(--Xpos) var(--Ypos),
         rgba(0, 0, 0, 0),
         rgba(0,0,0,1)
     );

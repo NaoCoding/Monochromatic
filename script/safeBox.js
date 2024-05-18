@@ -100,14 +100,14 @@ async function bedroom_safeBoxTrigger() {
   //   dialogBox.hide();
 
   if (userConfirmed) {
-    console.log("User pressed Y");
+    //console.log("User pressed Y");
     if (touchSafeBox == 0) touchSafeBox = 1;
     dialogBox.show();
-    if (touchSafeBox != 2) {
+    if (touchSafeBox < 2) {
       dialogBoxFunction("Sorry you don't have the password! Go find the password!");
       await delay(4000);
       dialogBox.hide();
-    } else {
+    } else if(touchSafeBox==2){
       dialogBoxFunction("Let me check your password for a few second....");
       await delay(4000);
       dialogBox.hide();
@@ -120,9 +120,15 @@ async function bedroom_safeBoxTrigger() {
       dialogBoxFunction("This is the key for you. Go ahead!");
       await delay(3000);
       dialogBox.hide();
+      touchSafeBox = 3
+    }
+    else{
+      dialogBoxFunction("You have already taken the key, aren't you?");
+      await delay(3000);
+      dialogBox.hide();
     }
   } else {
-    console.log("User did not press Y");
+    //console.log("User did not press Y");
     dialogBox.show();
     dialogBoxFunction("Good luck and goodbye!");
     await delay(3000);

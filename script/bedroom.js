@@ -176,7 +176,7 @@ async function bedroom_DoorDialogBox(){
                         ,"livingroom_flower","livingroom_knife","livingroom_photo","livingroom_sova",
                         "livingroom_tv"]
         PressEBorder = [0,1,2,3,4,5,6,7,8]
-        
+
         hideBedRoom()
     }
 
@@ -214,11 +214,15 @@ async function bedroom_ClosetDialogBox(){
             await delay(3000)
         }
     }
-    else{
+    else if(haveDiary == 0){
         haveDiary = 1
         dialogBoxFunction("I think you may need this diary");
         await delay(3000);
         await ProgressBar_generator(55, 25, 40, 15, 808081, 1000, 2000, 3000);
+    }
+    else{
+        dialogBoxFunction("I don't think I have what you need...");
+        await delay(3000);
     }
 
 
@@ -232,9 +236,16 @@ async function bedroom_BookSheifDialogBox(){
     isControlingCharacter = 0
     dialogBox.show()
 
+    if(ColorStatus == 0){
+        dialogBoxFunction("I prefer red more than black and white")
+        await delay(3000)
+    }
+    else if(ColorStatus == 1){
+        dialogBoxFunction("I love Red! I am happy now !!!")
+        await delay(2250)
+    }
     
-    dialogBoxFunction("I prefer red more than black and white")
-    await delay(3000)
+   
 
     dialogBox.hide()
     isControlingCharacter = 1
@@ -256,6 +267,7 @@ async function bedroom_BedDialogBox(){
         await delay(4000)
     }
     else{
+        haveDiary = 3
         haveBedRoomKey = 1
         dialogBoxFunction("I think you may need this screct key");
         await delay(3000);

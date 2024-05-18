@@ -22,6 +22,7 @@ let inventoryButton;
 let inventoryWindow;
 let showInventory = false;
 let curColor = "white";
+let touchSafeBox = 0;
 
 isMainScreen = 1;
 
@@ -42,6 +43,8 @@ async function dev(e) {
     mainCharacter.show();
     mouseFlashLight.show();
     start_SceneBedroom();
+    safeBoxSetup();
+    safeBoxTrigger();
     mouseFlashLight_getXY();
     fadeInAnimation(75);
     await delay(1000);
@@ -97,9 +100,9 @@ async function startGame() {
   mainCharacter.show();
   mouseFlashLight.show();
   start_SceneBedroom();
+  safeBoxSetup();
   mouseFlashLight_getXY();
   fadeInAnimation(75);
-  safeBoxSetup();
   await delay(2250);
   document.getElementById("start_Game_BGM").pause();
 }

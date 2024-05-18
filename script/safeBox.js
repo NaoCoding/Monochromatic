@@ -82,7 +82,7 @@ async function ProgressBar_generator(
   progressContainer.hide();
 }
 
-async function safeBoxTrigger() {
+async function bedroom_safeBoxTrigger() {
   isControlingCharacter = 0;
   dialogBox.show();
   dialogBoxFunction(
@@ -98,14 +98,14 @@ async function safeBoxTrigger() {
 
   if (userConfirmed) {
     console.log("User pressed Y");
-    if (touchSafeBox == 0) touchSafeBox = 2;
+    if (touchSafeBox == 0) touchSafeBox = 1;
     dialogBox.show();
     if (touchSafeBox != 2) {
-      dialogBoxFunction("Sorry you don't have the key! Go find the key!");
+      dialogBoxFunction("Sorry you don't have the password! Go find the password!");
       await delay(4000);
       dialogBox.hide();
     } else {
-      dialogBoxFunction("Let me check your key for a few second....");
+      dialogBoxFunction("Let me check your password for a few second....");
       await delay(4000);
       dialogBox.hide();
 

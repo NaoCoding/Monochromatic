@@ -113,6 +113,9 @@ async function bedroom_pcDeskDialogBox(){
         await delay(2500)
         dialogBoxFunction("Undoubtedly...")
         await delay(1000)
+        dialogBoxFunction("Wait for me, I will read the data from the database!")
+        await delay(3500)
+        await ProgressBar_generator(25, 45, 40, 15, 808081, 1000, 2000, 3000);
         dialogBoxFunction("You receive a safebox password!")
         await delay(3000)
 
@@ -186,7 +189,9 @@ async function bedroom_ClosetDialogBox(){
     }
     else{
         haveDiary = 1
-        
+        dialogBoxFunction("I think you may need this diary");
+        await delay(3000);
+        await ProgressBar_generator(70, 28, 40, 15, 808081, 1000, 2000, 3000);
     }
 
 
@@ -225,6 +230,9 @@ async function bedroom_BedDialogBox(){
     }
     else{
         haveBedRoomKey = 1
+        dialogBoxFunction("I think you may need this screct key");
+        await delay(3000);
+        await ProgressBar_generator(30, 15, 40, 15, 808081, 1000, 2000, 3000);
     }
     
     dialogBox.hide()

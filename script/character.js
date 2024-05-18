@@ -3,7 +3,7 @@ function CharacterSetup(){
     mainCharacter = createImg("image/mainCharacter.png","mainCharacter")
     mainCharacter.style("position:absolute")
     mainCharacter.style("top:50%;left:50%")
-    mainCharacter.style("width:7%;height:10%")
+    mainCharacter.style("width:7%;height:14%;background:transparent")
     mainCharacter.attribute("id","mainCharacter")
     mainCharacter.hide()
 

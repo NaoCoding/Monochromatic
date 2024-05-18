@@ -77,7 +77,7 @@ function InventoryInterface() {
   title.parent(inventoryWindow);
   title.style("font-size: 24px; text-align: center; margin: 2% 0");
   // 關閉按鈕
-  close = createDiv("關閉");
+  close = createDiv("X  ");
   close.parent(inventoryWindow);
   close.style("position", "absolute");
   close.style("top: 2%; right: 10px");
@@ -166,7 +166,7 @@ function InventoryInterface() {
 }
 
 function colorAndInventSetup() {
-  colorButton = createButton("切換顏色");
+  colorButton = createButton("");
   colorButton.style("position", "absolute");
   colorButton.style("top: 5%; left: 3%");
   ColorChangedButton(colorButton);

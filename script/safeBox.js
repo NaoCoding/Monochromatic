@@ -14,14 +14,15 @@ function handleKeyDown(event) {
 
 function safeBoxSetup() {
   MoveBorder.push("safeBox"); // 各個物件
-
+  PressEBorder.push(2);
   safeBox = createImg("image/safeBox_img.png", "safeBox");
-  safeBox.style("position:absolute;top:15%;left:38%;width:12%;height:15%;");
+  safeBox.style("position:absolute;bottom:15%;left:38%;width:12%;height:15%;");
   safeBox.attribute("id", "safeBox");
   safeBox.show();
+}
 
-  //   inventoryButton.show();
-  //   colorButton.show();
+function updateProgressBar(progressBar, percentage) {
+  progressBar.style("width", `${percentage}%`);
 }
 
 async function safeBoxTrigger() {
@@ -30,19 +31,64 @@ async function safeBoxTrigger() {
 
   window.resolvePromise = () => {};
   window.addEventListener("keydown", handleKeyDown);
-  await delay(3000); // 等待 3 秒
+  await delay(3000);
 
   const userConfirmed = await waitForUserInput();
-  dialogBox.hide();
+  //   dialogBox.hide();
 
   if (userConfirmed) {
     console.log("User pressed Y");
-    touchSafeBox = 1;
+    if (touchSafeBox == 0) touchSafeBox = 2;
+    dialogBox.show();
+    if (touchSafeBox != 2) {
+      dialogBoxFunction("Sorry you don't have the key! Go find the key!");
+      await delay(4000);
+      dialogBox.hide();
+    } else {
+      dialogBoxFunction("Let me check your key for a few second....");
+      await delay(4000);
+      dialogBox.hide();
+      // 遊戲進度
+      let progressContainer = createDiv("");
+      progressContainer.style("position", "absolute");
+      progressContainer.style("top: 50%; left: 36%");
+      progressContainer.style("width: 40%; height: 15%");
+      progressContainer.style("display: flex; align-items: center");
+
+      // 進度條
+      let progressBarContainer = createDiv("");
+      progressBarContainer.parent(progressContainer);
+      progressBarContainer.style("width: 40%; height: 15%");
+      progressBarContainer.style("background-color", "#ddd");
+      progressBarContainer.style("border-radius", "10px");
+
+      let progressBar = createDiv("");
+      progressBar.parent(progressBarContainer);
+      progressBar.style("width: 0%; height: 100%"); // 這邊是改進度的地方呦，提醒我自己是把參數傳過來這邊，不然找步道 QQ
+      progressBar.style("background-color", "#4caf50");
+      progressBar.style("border-radius", "10px");
+      progressBar.style("transition", "width 4s");
+
+      setTimeout(() => {
+        updateProgressBar(50);
+      }, 1000);
+
+      // 在2秒後將進度條設置為75%
+      setTimeout(() => {
+        updateProgressBar(75);
+      }, 2000);
+
+      // 在3秒後將進度條設置為100%
+      setTimeout(() => {
+        updateProgressBar(100);
+      }, 3000);
+    }
   } else {
     console.log("User did not press Y");
+    dialogBox.show();
     dialogBoxFunction("Good luck and goodbye!");
     await delay(3000);
-    disalogBox.hide();
-    touchSafeBox = 0;
+    dialogBox.hide();
+    if (touchSafeBox == 0) touchSafeBox = 0;
   }
 }

@@ -11,7 +11,6 @@ let dialogBox; // 對話框
 let BtnSuccess_Sound;
 let PressE2Interact_Label;
 
-touchSafeBox = 0;
 isMainScreen = 1;
 isControlingCharacter = 0; // 偵測是否正在可控制腳色的畫面
 MoveBorder = [[0, 100, 0, 100]]; // 可移動的邊界( % 為單位), x_left , x_right , y_left , y_right
@@ -44,7 +43,7 @@ async function dev(e) {
     mouseFlashLight.show();
     start_SceneBedroom();
     safeBoxSetup();
-    safeBoxTrigger();
+    // safeBoxTrigger();
     mouseFlashLight_getXY();
     fadeInAnimation(75);
     await delay(1000);

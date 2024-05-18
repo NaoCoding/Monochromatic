@@ -18,3 +18,16 @@ function start_SceneBedroom() {
     inventoryButton.show();
     colorButton.show();
   }
+
+async function BedDialogBox(){
+    isControlingCharacter = 0
+    dialogBox.show()
+    dialogBoxFunction("This is where I slept!?")
+    await delay(2000)
+    dialogBoxFunction("I can't remember anything!")
+    await delay(2750)
+    dialogBoxFunction("The room seems weird and horrible....")
+    await delay(4000)
+    dialogBox.hide()
+    isControlingCharacter = 1
+}

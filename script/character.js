@@ -2,7 +2,7 @@ function CharacterSetup(){
 
     mainCharacter = createImg("image/mainCharacterfront1.png","mainCharacter")
     mainCharacter.style("position:absolute")
-    mainCharacter.style("top:50%;left:50%")
+    mainCharacter.style("top:25%;left:30%")
     mainCharacter.style("width:7%;height:14%;background:transparent")
     mainCharacter.attribute("id","mainCharacter")
     mainCharacter.hide()
@@ -23,7 +23,7 @@ function CharacterBtnDetection(e){
 
         if(e.which == 69){
             if(canInteract != -1){
-                InteractObject(i)
+                InteractObject(canInteract)
             }
         }
 
@@ -83,6 +83,9 @@ function CharacterBtnDetection(e){
         }
 
         if(e.which == 87){
+            c.src = "image/mainCharacterback" + moveAnimationArr[moveIDX] + ".png"
+            moveIDX += 1
+            if(moveIDX > 19) moveIDX = 0
             c.style.top = (parseFloat(c.style.top) - moveSpeed).toString() + "%"
             for(var i=0;i<MoveBorder.length;i++){
                 rect2 = document.getElementById(MoveBorder[i]).getBoundingClientRect()
@@ -113,7 +116,7 @@ function CharacterBtnDetection(e){
         if(e.which == 83){
             c.src = "image/mainCharacterfront" + moveAnimationArr[moveIDX] + ".png"
             moveIDX += 1
-            if(moveIDX > 15) moveIDX = 0
+            if(moveIDX > 19) moveIDX = 0
             c.style.top = (parseFloat(c.style.top) + moveSpeed).toString() + "%"
             for(var i=0;i<MoveBorder.length;i++){
                 rect2 = document.getElementById(MoveBorder[i]).getBoundingClientRect()
@@ -144,7 +147,7 @@ function CharacterBtnDetection(e){
 
 }
 
-moveAnimationArr = "1111222211113333"
+moveAnimationArr = "11111222221111133333"
 moveIDX = 0
 
 document.onkeydown = CharacterBtnDetection

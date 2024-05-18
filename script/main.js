@@ -30,8 +30,11 @@ isMainScreen = 1;
 
 async function dev(e){
   if(e == 1){
+    isMainScreen = 0
     isControlingCharacter = 1
-    background.attribute("src", "image/white_background.png");
+    main_menu_startGameBtn.hide();
+    main_menu_titleLabel.hide();
+    main_menu_GitHubBtn.hide();
     main_menu_startGameBtn.hide();
     main_menu_titleLabel.hide();
     main_menu_GitHubBtn.hide();
@@ -41,8 +44,8 @@ async function dev(e){
     start_SceneBedroom();
     mouseFlashLight_getXY();
     fadeInAnimation(75);
-    await delay(2250);
-    document.getElementById("start_Game_BGM").pause();
+    await delay(1000);
+    background.attribute("src", "image/white_background.png");
   }
 }
 

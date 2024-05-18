@@ -12,7 +12,12 @@ function PressEtoInteractShow(){
 }
 
 function InteractObject(idx){
-    console.log("Interacted ! ")
+    
+    canInteract = -1
+    if(MoveBorder[idx] == "bedroom_Bed")BedDialogBox()
+
+
+
 }
 
 canInteract = -1

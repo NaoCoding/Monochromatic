@@ -5,6 +5,7 @@ let main_menu_GitHubBtn // 開始畫面Github Repo Btn
 let main_menu_titleLabel // 開始畫面遊戲名稱圖片
 let story_tellLabel 
 let start_Game_BGM
+let RoomWall // 場景邊界
 let mainCharacter // 主角
 let dialogBox // 對話框
 
@@ -24,13 +25,25 @@ isMainScreen = 1;
 // function main_menu() 主畫面
 // function setup() p5.js 開始設定
 
-function start_Scene1() {}
+function start_Scene1() {
+
+    MoveBorder = [15,85,15,85]
+    RoomWall = createImg("image/white_background.png","RoomWall")
+    RoomWall.style("position:absolute;top:15%;left:15%;width:70%;height:70%;")
+    RoomWall.style("borderStyle:solid;borderWidth:2px;")
+    RoomWall.style("zIndex:-1")
+    RoomWall.show()
+
+    inventoryButton.show()
+    colorButton.show()
+
+}
 
 async function startGame() {
   // 開始遊戲後的過場動畫
 
   document.getElementById("start_Game_BGM").volume = 0.5
-    document.getElementById("start_Game_BGM").play()
+  document.getElementById("start_Game_BGM").play()
 
     
   await delay(1000);

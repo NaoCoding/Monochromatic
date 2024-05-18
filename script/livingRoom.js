@@ -56,6 +56,22 @@ function livingroom_sovaDialogBox(){
 }
 
 
+async function living_roomSovaAnimation(){
+    
+    var now = 1
+    var q = setInterval(() => {
+        if(isRedUnlocked == 1){
+            clearInterval(q)
+            livingroom_sova.attribute("src","image/livingroom_sova.png")
+        }
+        else{
+            now = now == 1 ? 2 : 1;
+            livingroom_sova.attribute("src","image/livingroom_sova" + (now).toString() + ".png")
+        }
+      }, 100);
+
+}
+
 
 function start_SceneLivingRoom(){
     
@@ -116,5 +132,5 @@ function start_SceneLivingRoom(){
 
 
 
-
+    living_roomSovaAnimation()
 }

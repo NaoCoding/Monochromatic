@@ -150,7 +150,7 @@ async function bedroom_DoorDialogBox(){
         
     }
     else if(haveBedRoomKey == 0){
-        dialogBoxFunction("The Door is Closed")
+        dialogBoxFunction("The Door is Locked")
         await delay(2000)
     }
     else{

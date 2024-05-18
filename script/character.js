@@ -20,6 +20,8 @@ function CharacterBtnDetection(e){
         var top = parseFloat(c.style.top)
         var width = parseFloat(c.style.width)
         var height = parseFloat(c.style.height)
+        
+        
 
         if(e.which == 69){
             if(canInteract != -1){
@@ -51,6 +53,7 @@ function CharacterBtnDetection(e){
                     return;
                   }
             }
+            
             if(left - (moveSpeed * windowHeight / windowWidth) >= WallBorder[0] &&
                     left + width - (moveSpeed * windowHeight / windowWidth) <= WallBorder[1] &&
                     top >= WallBorder[2] &&

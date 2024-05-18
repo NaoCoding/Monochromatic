@@ -13,8 +13,8 @@ let PressE2Interact_Label;
 
 isMainScreen = 1;
 isControlingCharacter = 0; // 偵測是否正在可控制腳色的畫面
-MoveBorder = [[0, 100, 0, 100]]; // 可移動的邊界( % 為單位), x_left , x_right , y_left , y_right
-PressEBorder = [];
+var MoveBorder = []; // 可移動的邊界( % 為單位), x_left , x_right , y_left , y_right
+var PressEBorder = [];
 // Long
 let colorButton;
 let inventoryButton;
@@ -67,6 +67,7 @@ async function dev(e) {
     haveBedRoomKey = 1
     haveDiary  = 2
     touchSafeBox = 2
+    hideBedRoom()
     bedroom_DoorDialogBox()
     background.attribute("src", "image/white_background.png");
   }

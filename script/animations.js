@@ -1,6 +1,4 @@
-let FlashLightWhite_xpos = 0;
-let FlashLightWhite_ypos = 0;
-
+var flash_now = "FlashLightWhite"
 async function story_tellFunction(target) {
   story_tellLabel.html("", 0);
   var t = 0;
@@ -35,13 +33,13 @@ async function dialogBoxFunction(target) {
 function FlashLightWhite_getXY() {
   var c = document.getElementById("mainCharacter");
   document
-    .getElementById("FlashLightWhite")
+    .getElementById(flash_now)
     .style.setProperty(
       "--Xpos",
       parseFloat(c.style.left) + parseFloat(c.style.width) / 2 + "%"
     );
   document
-    .getElementById("FlashLightWhite")
+    .getElementById(flash_now)
     .style.setProperty(
       "--Ypos",
       parseFloat(c.style.top) + parseFloat(c.style.height) / 2 + "%"

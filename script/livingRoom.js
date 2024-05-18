@@ -3,6 +3,60 @@ let livingroom_door2outside,livingroom_door2parent
 let livingroom_flower,livingroom_knife
 let livingroom_photo,livingroom_sova,livingroom_tv
 
+isRedUnlocked = 0
+
+async function UnlockRed(){
+
+    isControlingCharacter = 0
+    
+
+    isRedUnlocked = 1
+    flash_now = "FlashLightRed"
+    FlashLightWhite_getXY()
+    fadeOutAnimation(35);
+    await delay(1500);
+    document.body.style.opacity = 1
+    dialogBox.show()
+    FlashLightWhite.hide()
+    FlashLightRed.show()
+    dialogBoxFunction("What happened !?")
+    await delay(2000)
+    fadeOutAnimation(25);
+    FlashLightWhite.show()
+    FlashLightRed.hide()
+    dialogBox.hide()
+    await delay(1000);
+    FlashLightWhite.hide()
+    FlashLightRed.show()
+    fadeInAnimation(25);
+    await delay(1000);
+    FlashLightWhite.show()
+    FlashLightRed.hide()
+    fadeOutAnimation(25);
+    await delay(1000);
+    FlashLightWhite.hide()
+    FlashLightRed.show()
+    fadeInAnimation(25);
+    await delay(1000);
+    
+    isControlingCharacter = 1
+
+}
+
+
+function livingroom_sovaDialogBox(){
+
+    if(isRedUnlocked == 0) UnlockRed()
+    else{
+        
+
+
+    }
+
+}
+
+
+
 function start_SceneLivingRoom(){
     
     mainCharacter.style("top:55%;left:20%")
@@ -54,7 +108,6 @@ function start_SceneLivingRoom(){
     livingroom_sova.attribute("id","livingroom_sova")
     livingroom_sova.show()
 
-    livingroom_tv
 
     livingroom_tv = createImg("image/livingroom_tv.png","bed")
     livingroom_tv.style("position:absolute;top:30%;left:15%;width:4%;height:18%;");

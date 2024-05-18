@@ -1,4 +1,5 @@
 let FlashLightWhite; // 滑鼠手電筒
+let FlashLightRed; // 滑鼠手電筒
 let background; // 背景
 let main_menu_startGameBtn; // 開始遊戲按鈕
 let main_menu_GitHubBtn; // 開始畫面Github Repo Btn
@@ -145,6 +146,11 @@ function main_menu() {
   FlashLightWhite = createElement("div");
   FlashLightWhite.attribute("id", "FlashLightWhite");
   FlashLightWhite.hide();
+
+  FlashLightRed = createElement("div");
+  FlashLightRed.attribute("id", "FlashLightRed");
+  FlashLightRed.hide();
+
   document.body.style.cursor = "auto";
 
   main_menu_startGameBtn = createImg(

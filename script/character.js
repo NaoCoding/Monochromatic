@@ -16,28 +16,100 @@ function CharacterBtnDetection(e){
 
     if(isControlingCharacter == 1){
         mouseFlashLight_getXY();
+        var left = parseFloat(c.style.left)
+        var top = parseFloat(c.style.top)
+        var width = parseFloat(c.style.width)
+        var height = parseFloat(c.style.height)
         if(e.which == 65){
-            if(parseFloat(c.style.left) >= MoveBorder[0] + (moveSpeed * windowHeight / windowWidth) ){
-                c.style.left = (parseFloat(c.style.left) - (moveSpeed * windowHeight / windowWidth)).toString() + "%"
+            c.style.left = (parseFloat(c.style.left) - (moveSpeed * windowHeight / windowWidth)).toString() + "%"
+            for(var i=0;i<MoveBorder.length;i++){
+                rect2 = document.getElementById(MoveBorder[i]).getBoundingClientRect()
+                if(!(
+                    c.getBoundingClientRect().top > rect2.bottom ||
+                    c.getBoundingClientRect().right < rect2.left ||
+                    c.getBoundingClientRect().bottom < rect2.top ||
+                    c.getBoundingClientRect().left > rect2.right
+                  )){
+                    c.style.left = (parseFloat(c.style.left) + (moveSpeed * windowHeight / windowWidth)).toString() + "%"
+                    return;
+                  }
             }
+            if(left - (moveSpeed * windowHeight / windowWidth) >= WallBorder[0] &&
+                    left + width - (moveSpeed * windowHeight / windowWidth) <= WallBorder[1] &&
+                    top >= WallBorder[2] &&
+                    top + height <= WallBorder[3]){
+                        
+                    }
+            else c.style.left = (parseFloat(c.style.left) + (moveSpeed * windowHeight / windowWidth)).toString() + "%"
+            
         }
 
         if(e.which == 68){
-            if(parseFloat(c.style.left) + parseFloat(c.style.width) <= MoveBorder[1] - (moveSpeed * windowHeight / windowWidth)){
-                c.style.left = (parseFloat(c.style.left) + (moveSpeed * windowHeight / windowWidth)).toString() + "%"
+            c.style.left = (parseFloat(c.style.left) + (moveSpeed * windowHeight / windowWidth)).toString() + "%"
+            for(var i=0;i<MoveBorder.length;i++){
+                rect2 = document.getElementById(MoveBorder[i]).getBoundingClientRect()
+                if(!(
+                    c.getBoundingClientRect().top > rect2.bottom ||
+                    c.getBoundingClientRect().right < rect2.left ||
+                    c.getBoundingClientRect().bottom < rect2.top ||
+                    c.getBoundingClientRect().left > rect2.right
+                  )){c.style.left = (parseFloat(c.style.left) - (moveSpeed * windowHeight / windowWidth)).toString() + "%"
+                  return;}
             }
+            if(left + (moveSpeed * windowHeight / windowWidth) >= WallBorder[0] &&
+                    left + width + (moveSpeed * windowHeight / windowWidth) <= WallBorder[1] &&
+                    top >= WallBorder[2] &&
+                    top + height <= WallBorder[3]){
+                        
+                    }
+            else c.style.left = (parseFloat(c.style.left) - (moveSpeed * windowHeight / windowWidth)).toString() + "%"
+            
         }
 
         if(e.which == 87){
-            if(parseFloat(c.style.top) >= MoveBorder[2] + moveSpeed){
-                c.style.top = (parseFloat(c.style.top) - moveSpeed).toString() + "%"
+            c.style.top = (parseFloat(c.style.top) - moveSpeed).toString() + "%"
+            for(var i=0;i<MoveBorder.length;i++){
+                rect2 = document.getElementById(MoveBorder[i]).getBoundingClientRect()
+                if(!(
+                    c.getBoundingClientRect().top > rect2.bottom ||
+                    c.getBoundingClientRect().right < rect2.left ||
+                    c.getBoundingClientRect().bottom < rect2.top ||
+                    c.getBoundingClientRect().left > rect2.right
+                  )){
+                    c.style.top = (parseFloat(c.style.top) + moveSpeed).toString() + "%"
+                    return ;
+                  }
             }
+            
+            if(left  >= WallBorder[0] &&
+                left + width  <= WallBorder[1] &&
+                top - moveSpeed >= WallBorder[2] &&
+                top + height - moveSpeed <= WallBorder[3])
+            {}
+            else c.style.top = (parseFloat(c.style.top) + moveSpeed).toString() + "%"
+            
         }
 
         if(e.which == 83){
-            if(parseFloat(c.style.top) + parseFloat(c.style.height) <= MoveBorder[3] - moveSpeed){
-                c.style.top = (parseFloat(c.style.top) + moveSpeed).toString() + "%"
+            c.style.top = (parseFloat(c.style.top) + moveSpeed).toString() + "%"
+            for(var i=0;i<MoveBorder.length;i++){
+                rect2 = document.getElementById(MoveBorder[i]).getBoundingClientRect()
+                if(!(
+                    c.getBoundingClientRect().top > rect2.bottom ||
+                    c.getBoundingClientRect().right < rect2.left ||
+                    c.getBoundingClientRect().bottom < rect2.top ||
+                    c.getBoundingClientRect().left > rect2.right
+                  )){
+                    c.style.top = (parseFloat(c.style.top) - moveSpeed).toString() + "%"
+                    return ;
+                  }
             }
+            if(left  >= WallBorder[0] &&
+                left + width  <= WallBorder[1] &&
+                top + moveSpeed >= WallBorder[2] &&
+                top + height + moveSpeed <= WallBorder[3]){}
+            else c.style.top = (parseFloat(c.style.top) - moveSpeed).toString() + "%"
+            
         }
     }
 

@@ -11,7 +11,7 @@ let dialogBox; // 對話框
 
 isMainScreen = 1;
 isControlingCharacter = 0; // 偵測是否正在可控制腳色的畫面
-MoveBorder = [0, 100, 0, 100]; // 可移動的邊界( % 為單位), x_left , x_right , y_left , y_right
+MoveBorder = [[0, 100, 0, 100]]; // 可移動的邊界( % 為單位), x_left , x_right , y_left , y_right
 
 // Long
 let colorButton;
@@ -25,17 +25,7 @@ isMainScreen = 1;
 // function main_menu() 主畫面
 // function setup() p5.js 開始設定
 
-function start_Scene1() {
-  MoveBorder = [15, 85, 15, 85];
-  RoomWall = createImg("image/white_background.png", "RoomWall");
-  RoomWall.style("position:absolute;top:15%;left:15%;width:70%;height:70%;");
-  RoomWall.style("borderStyle:solid;borderWidth:2px;");
-  RoomWall.style("zIndex:-1");
-  RoomWall.show();
 
-  inventoryButton.show();
-  colorButton.show();
-}
 
 async function startGame() {
   // 開始遊戲後的過場動畫
@@ -82,7 +72,7 @@ async function startGame() {
   dialogBox.hide();
   mainCharacter.show();
   mouseFlashLight.show();
-  start_Scene1();
+  start_SceneBedroom();
   fadeInAnimation(75);
   await delay(2250);
   document.getElementById("start_Game_BGM").pause();

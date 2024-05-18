@@ -30,6 +30,7 @@ function CharacterBtnDetection(e){
                     c.getBoundingClientRect().bottom < rect2.top ||
                     c.getBoundingClientRect().left > rect2.right
                   )){
+                    if(PressEBorder.find((ele) => ele == i) != undefined) PressEtoInteractShow()
                     c.style.left = (parseFloat(c.style.left) + (moveSpeed * windowHeight / windowWidth)).toString() + "%"
                     return;
                   }
@@ -53,7 +54,9 @@ function CharacterBtnDetection(e){
                     c.getBoundingClientRect().right < rect2.left ||
                     c.getBoundingClientRect().bottom < rect2.top ||
                     c.getBoundingClientRect().left > rect2.right
-                  )){c.style.left = (parseFloat(c.style.left) - (moveSpeed * windowHeight / windowWidth)).toString() + "%"
+                  )){
+                    if(PressEBorder.find((ele) => ele == i) != undefined) PressEtoInteractShow()
+                    c.style.left = (parseFloat(c.style.left) - (moveSpeed * windowHeight / windowWidth)).toString() + "%"
                   return;}
             }
             if(left + (moveSpeed * windowHeight / windowWidth) >= WallBorder[0] &&
@@ -76,6 +79,7 @@ function CharacterBtnDetection(e){
                     c.getBoundingClientRect().bottom < rect2.top ||
                     c.getBoundingClientRect().left > rect2.right
                   )){
+                    if(PressEBorder.find((ele) => ele == i) != undefined) PressEtoInteractShow()
                     c.style.top = (parseFloat(c.style.top) + moveSpeed).toString() + "%"
                     return ;
                   }
@@ -100,6 +104,7 @@ function CharacterBtnDetection(e){
                     c.getBoundingClientRect().bottom < rect2.top ||
                     c.getBoundingClientRect().left > rect2.right
                   )){
+                    if(PressEBorder.find((ele) => ele == i) != undefined) PressEtoInteractShow()
                     c.style.top = (parseFloat(c.style.top) - moveSpeed).toString() + "%"
                     return ;
                   }
@@ -111,6 +116,7 @@ function CharacterBtnDetection(e){
             else c.style.top = (parseFloat(c.style.top) - moveSpeed).toString() + "%"
             
         }
+        PressE2Interact_Label.hide()
     }
 
 }

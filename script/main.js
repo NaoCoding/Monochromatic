@@ -9,11 +9,12 @@ let RoomWall; // 場景邊界
 let mainCharacter; // 主角
 let dialogBox; // 對話框
 let BtnSuccess_Sound
+let PressE2Interact_Label
 
 isMainScreen = 1;
 isControlingCharacter = 0; // 偵測是否正在可控制腳色的畫面
 MoveBorder = [[0, 100, 0, 100]]; // 可移動的邊界( % 為單位), x_left , x_right , y_left , y_right
-
+PressEBorder = []
 // Long
 let colorButton;
 let inventoryButton;
@@ -176,4 +177,5 @@ function setup() {
   dialogBoxSetup();
   colorAndInventSetup();
   BtnSuccess_SoundSetup()
+  PressE2Interact_LabelSetup()
 }

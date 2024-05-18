@@ -1,6 +1,7 @@
 let bedroom_Bed
 function start_SceneBedroom() {
     MoveBorder = ["bedroom_Bed"]; // 各個物件
+    PressEBorder = [0]
     WallBorder = [15,85,15,85] // 牆壁
     RoomWall = createImg("image/white_background.png", "RoomWall");
     RoomWall.style("position:absolute;top:15%;left:15%;width:70%;height:70%;");

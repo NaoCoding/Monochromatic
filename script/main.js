@@ -106,7 +106,7 @@ async function startGame() {
   fadeOutAnimation(75);
   await delay(1500);
 
-  background.attribute("src", "image/white_background.png");
+  //background.attribute("src", "image/white_background.png");
 
   fadeInAnimation(75);
   await delay(2250);
@@ -115,15 +115,14 @@ async function startGame() {
   dialogBox.show();
   dialogBoxFunction("Who am I ?? Where is this place ??");
   await delay("3000");
-
-  fadeOutAnimation(75);
-  await delay(1500);
+  dialogBoxFunction("It's so dark here... Wait, I found a flashlight");
+  await delay("3000");
 
   dialogBox.hide();
+  start_SceneBedroom();
+  safeBoxSetup(); 
   mainCharacter.show();
   FlashLightWhite.show();
-  start_SceneBedroom();
-  safeBoxSetup();
   FlashLightWhite_getXY();
   fadeInAnimation(75);
   await delay(2250);

@@ -14,23 +14,33 @@ function handleKeyDown(event) {
 
 function safeBoxSetup() {
   MoveBorder.push("safeBox"); // 各個物件
+<<<<<<< HEAD
   PressEBorder.push(2);
   safeBox = createImg("image/safeBox_img.png", "safeBox");
   safeBox.style("position:absolute;bottom:15%;left:38%;width:12%;height:15%;");
+=======
+
+  safeBox = createImg("image/safeBox_img.png", "safeBox");
+  safeBox.style("position:absolute;top:15%;left:38%;width:12%;height:15%;");
+>>>>>>> 2a83ec8 (chore: merge)
   safeBox.attribute("id", "safeBox");
   safeBox.show();
 }
 
+<<<<<<< HEAD
 function updateProgressBar(progressBar, percentage) {
   progressBar.style("width", `${percentage}%`);
 }
 
+=======
+>>>>>>> 2a83ec8 (chore: merge)
 async function safeBoxTrigger() {
   dialogBox.show();
   dialogBoxFunction("Are you looking for some secret?");
 
   window.resolvePromise = () => {};
   window.addEventListener("keydown", handleKeyDown);
+<<<<<<< HEAD
   await delay(3000);
 
   const userConfirmed = await waitForUserInput();
@@ -90,5 +100,21 @@ async function safeBoxTrigger() {
     await delay(3000);
     dialogBox.hide();
     if (touchSafeBox == 0) touchSafeBox = 0;
+=======
+  await delay(3000); // 等待 3 秒
+
+  const userConfirmed = await waitForUserInput();
+  dialogBox.hide();
+
+  if (userConfirmed) {
+    console.log("User pressed Y");
+    touchSafeBox = 1;
+  } else {
+    console.log("User did not press Y");
+    dialogBoxFunction("Good luck and goodbye!");
+    await delay(3000);
+    disalogBox.hide();
+    touchSafeBox = 0;
+>>>>>>> 2a83ec8 (chore: merge)
   }
 }

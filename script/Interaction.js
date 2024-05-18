@@ -10,3 +10,9 @@ function PressEtoInteractShow(){
     PressE2Interact_Label.style("top",(parseFloat(c.style.top) - 5).toString() + "%")
     PressE2Interact_Label.style("left",((parseFloat(c.style.left))).toString() + "%")
 }
+
+function InteractObject(idx){
+    console.log("Interacted ! ")
+}
+
+canInteract = -1

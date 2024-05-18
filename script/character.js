@@ -1,6 +1,6 @@
 function CharacterSetup(){
 
-    mainCharacter = createImg("image/mainCharacter.png","mainCharacter")
+    mainCharacter = createImg("image/mainCharacterfront1.png","mainCharacter")
     mainCharacter.style("position:absolute")
     mainCharacter.style("top:50%;left:50%")
     mainCharacter.style("width:7%;height:14%;background:transparent")
@@ -20,6 +20,13 @@ function CharacterBtnDetection(e){
         var top = parseFloat(c.style.top)
         var width = parseFloat(c.style.width)
         var height = parseFloat(c.style.height)
+
+        if(e.which == 69){
+            if(canInteract != -1){
+                InteractObject(i)
+            }
+        }
+
         if(e.which == 65){
             c.style.left = (parseFloat(c.style.left) - (moveSpeed * windowHeight / windowWidth)).toString() + "%"
             for(var i=0;i<MoveBorder.length;i++){
@@ -30,7 +37,10 @@ function CharacterBtnDetection(e){
                     c.getBoundingClientRect().bottom < rect2.top ||
                     c.getBoundingClientRect().left > rect2.right
                   )){
-                    if(PressEBorder.find((ele) => ele == i) != undefined) PressEtoInteractShow()
+                    if(PressEBorder.find((ele) => ele == i) != undefined){
+                        PressEtoInteractShow()
+                        canInteract = i
+                    }
                     c.style.left = (parseFloat(c.style.left) + (moveSpeed * windowHeight / windowWidth)).toString() + "%"
                     return;
                   }
@@ -55,7 +65,10 @@ function CharacterBtnDetection(e){
                     c.getBoundingClientRect().bottom < rect2.top ||
                     c.getBoundingClientRect().left > rect2.right
                   )){
-                    if(PressEBorder.find((ele) => ele == i) != undefined) PressEtoInteractShow()
+                    if(PressEBorder.find((ele) => ele == i) != undefined){
+                        PressEtoInteractShow()
+                        canInteract = i
+                    }
                     c.style.left = (parseFloat(c.style.left) - (moveSpeed * windowHeight / windowWidth)).toString() + "%"
                   return;}
             }
@@ -79,7 +92,10 @@ function CharacterBtnDetection(e){
                     c.getBoundingClientRect().bottom < rect2.top ||
                     c.getBoundingClientRect().left > rect2.right
                   )){
-                    if(PressEBorder.find((ele) => ele == i) != undefined) PressEtoInteractShow()
+                    if(PressEBorder.find((ele) => ele == i) != undefined){
+                        PressEtoInteractShow()
+                        canInteract = i
+                    }
                     c.style.top = (parseFloat(c.style.top) + moveSpeed).toString() + "%"
                     return ;
                   }
@@ -95,6 +111,9 @@ function CharacterBtnDetection(e){
         }
 
         if(e.which == 83){
+            c.src = "image/mainCharacterfront" + moveAnimationArr[moveIDX]
+            moveIDX += 1
+            if(moveIDX > 3) moveIDX = 0
             c.style.top = (parseFloat(c.style.top) + moveSpeed).toString() + "%"
             for(var i=0;i<MoveBorder.length;i++){
                 rect2 = document.getElementById(MoveBorder[i]).getBoundingClientRect()
@@ -104,7 +123,10 @@ function CharacterBtnDetection(e){
                     c.getBoundingClientRect().bottom < rect2.top ||
                     c.getBoundingClientRect().left > rect2.right
                   )){
-                    if(PressEBorder.find((ele) => ele == i) != undefined) PressEtoInteractShow()
+                    if(PressEBorder.find((ele) => ele == i) != undefined){
+                        PressEtoInteractShow()
+                        canInteract = i
+                    }
                     c.style.top = (parseFloat(c.style.top) - moveSpeed).toString() + "%"
                     return ;
                   }
@@ -117,10 +139,12 @@ function CharacterBtnDetection(e){
             
         }
         PressE2Interact_Label.hide()
+        canInteract = -1
     }
 
 }
 
-
+moveAnimationArr = ['1','2','1','3']
+moveIDX = 0
 
 document.onkeydown = CharacterBtnDetection

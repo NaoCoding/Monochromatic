@@ -248,6 +248,7 @@ function main_menu() {
     "image/main_menu_GitHubBtn.png",
     "main_menu_GitHubBtn"
   );
+  
   main_menu_GitHubBtn.style("position", "absolute");
 
   main_menu_GitHubBtn.style("top", "60%");

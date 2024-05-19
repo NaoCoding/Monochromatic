@@ -138,7 +138,7 @@ async function InventoryInterface() {
     inventoryWindow = createDiv("");
     inventoryWindow.style("position", "absolute");
     inventoryWindow.style("top: 10%; left: 25%");
-    inventoryWindow.style("width: 50%; height: 90%");
+    inventoryWindow.style("width: 50%; height: 80%");
     inventoryWindow.style("background-color: rgba(255, 255, 255, 0.97)");
     inventoryWindow.style("border: 1px solid black");
     inventoryWindow.style("zIndex:10");
@@ -164,12 +164,12 @@ async function InventoryInterface() {
     //   charInfo.style("border: 1px solid black");
   
     // 人物照片
-    char = createDiv("");
-    char.parent(charInfo);
-    char.style("position", "absolute");
-    char.style("top: 5px; left: 12%");
-    char.style("width: 70%; height: 45%");
-    char.style("border: 1px solid black");
+    charer = createDiv("");
+    charer.parent(charInfo);
+    charer.style("position", "absolute");
+    charer.style("top: 5px; left: 12%");
+    charer.style("width: 70%; height: 45%");
+    charer.style("border: 1px solid black");
   
     // 人物名字
     charName = createDiv("Wlick");
@@ -180,34 +180,8 @@ async function InventoryInterface() {
     charName.style("width: 35%; height: 10%");
     charName.style("border: 1px solid black");
   
-    // 遊戲進度
-    let progressContainer = createDiv("");
-    progressContainer.parent(charInfo);
-    progressContainer.style("position", "absolute");
-    progressContainer.style("top: 65%; left: 0%");
-    progressContainer.style("width: 90%; height: 20%");
-    progressContainer.style("display: flex; align-items: center");
   
-    // 進度標籤
-    let progressLabel = createDiv("遊戲進度");
-    progressLabel.parent(progressContainer);
-    progressLabel.style("width: 30%; height: 100%");
-    progressLabel.style(
-      "display: flex; align-items: center; justify-content: center"
-    );
-  
-    // 進度條
-    let progressBarContainer = createDiv("");
-    progressBarContainer.parent(progressContainer);
-    progressBarContainer.style("width: 70%; height: 50%");
-    progressBarContainer.style("background-color", "#ddd");
-    progressBarContainer.style("border-radius", "10px");
-  
-    let progressBar = createDiv("");
-    progressBar.parent(progressBarContainer);
-    progressBar.style("width: 10%; height: 100%"); // 這邊是改進度的地方呦，提醒我自己是把參數傳過來這邊，不然找步道 QQ
-    progressBar.style("background-color", "#4caf50");
-    progressBar.style("border-radius", "10px");
+
   
     colorCollect = createDiv("");
     collector = createDiv("");

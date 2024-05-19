@@ -234,7 +234,7 @@ async function UnlockYellow(){
     
     fadeInAnimation(25);
     await delay(1250);
-    
+    BGM()
     isControlingCharacter = 1
 
 }

@@ -4,7 +4,7 @@ function start_GameBGMSetup(){
     start_Game_BGM.attribute("id","start_Game_BGM")
 }
 
-let pressESound,typingSound,BtnFailed_Sound,cChangeSound,openDoorSound,bgm
+let pressESound,typingSound,BtnFailed_Sound,cChangeSound,openDoorSound,abgm,bbgm,cbgm
 
 function BtnSuccess_SoundSetup(){
     BtnSuccess_Sound = createElement("Audio")
@@ -32,37 +32,53 @@ function BtnSuccess_SoundSetup(){
     typingSound.attribute("src","audio/typingSound.mp3")
     typingSound.attribute("id","typingSound")
 
-    bgm = createElement("Audio")
-    bgm.attribute("src","audio/scared_sound.mp3")
-    bgm.attribute("id","bgm")
-    document.getElementById("bgm").loop = "True"
+    abgm = createElement("Audio")
+    abgm.attribute("src","audio/normal_sound.mp3")
+    abgm.attribute("id","abgm")
+
+    bbgm = createElement("Audio")
+    bbgm.attribute("src","audio/scared_sound.mp3")
+    bbgm.attribute("id","bbgm")
+
+    cbgm = createElement("Audio")
+    cbgm.attribute("src","audio/happy_sound.mp3")
+    cbgm.attribute("id","cbgm")
+
+    //document.getElementById("bgm").loop = "True"
 }
 
 
 
 async function BGM(){
-
+    document.getElementById("abgm").pause()
+    document.getElementById("abgm").currentTime = 0
+    document.getElementById("bbgm").pause()
+    document.getElementById("bbgm").currentTime = 0
+    document.getElementById("cbgm").pause()
+    document.getElementById("cbgm").currentTime = 0
+    await delay(500)
+    
     if(ColorStatus == 0){
-        bgm.attribute("src","audio/normal_sound.mp3")
-        document.getElementById("bgm").volume = 0.5
-        document.getElementById("bgm").currentTime = 0
-        document.getElementById("bgm").play();
-        document.getElementById("bgm").loop = "True"
+    
+        document.getElementById("abgm").volume = 0.5
+        document.getElementById("abgm").currentTime = 0
+        document.getElementById("abgm").play();
+        document.getElementById("abgm").loop = "True"
     }
     
     if(ColorStatus == 1){
-        bgm.attribute("src","audio/scared_sound.mp3")
-        document.getElementById("bgm").volume = 0.5
-        document.getElementById("bgm").currentTime = 10
-        document.getElementById("bgm").play();
-        document.getElementById("bgm").loop = "True"
+
+        document.getElementById("bbgm").volume = 0.5
+        document.getElementById("bbgm").currentTime = 10
+        document.getElementById("bbgm").play();
+        document.getElementById("bbgm").loop = "True"
     }
     if(ColorStatus == 2){
-        bgm.attribute("src","audio/happy_sound.mp3")
-        document.getElementById("bgm").volume = 0.5
-        document.getElementById("bgm").currentTime = 0
-        document.getElementById("bgm").play();
-        document.getElementById("bgm").loop = "True"
+
+        document.getElementById("cbgm").volume = 0.5
+        document.getElementById("cbgm").currentTime = 0
+        document.getElementById("cbgm").play();
+        document.getElementById("cbgm").loop = "True"
     }
 }
 

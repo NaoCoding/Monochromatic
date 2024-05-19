@@ -72,12 +72,14 @@ async function UnlockRed(){
     
     fadeInAnimation(25);
     await delay(1250);
+    isControlingCharacter = 1
     dialogBox.show()
+    BGM()
     dialogBoxFunction("Click the button to toggle Color of the world")
     await delay(3250)
     dialogBox.hide()
     
-    isControlingCharacter = 1
+    
 
 }
 

@@ -31,7 +31,7 @@ NaoCoding : General Codes / Publish the game
           Scenes Animations / Game Design / Main Menu
 MaxWuTW : General Codes
           Inventorys / Progess Bar / TV & Password Enter UI
-EnLiao : All the Images / Drawing / Game Design / Map Design
+EnLiao ( Rokusenn ) : All the Images / Drawing / Game Design / Map Design
 ```
 
 ### Screenshots

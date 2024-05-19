@@ -22,21 +22,27 @@ function PressEtoInteractShow() {
 function InteractObject(idx) {
   canInteract = -1;
   if (MoveBorder[idx] == "bedroom_Bed") bedroom_BedDialogBox();
-  else if(MoveBorder[idx] == "bedroom_pcDesk") bedroom_pcDeskDialogBox();
+  else if (MoveBorder[idx] == "bedroom_pcDesk") bedroom_pcDeskDialogBox();
   else if (MoveBorder[idx] == "safeBox") bedroom_safeBoxTrigger();
-  else if(MoveBorder[idx] == "bedroom_closet") bedroom_ClosetDialogBox();
-  else if(MoveBorder[idx] == "bedroom_date") bedroom_DateDialogBox();
-  else if(MoveBorder[idx] == "bedroom_bookshelf") bedroom_BookSheifDialogBox()
-  else if(MoveBorder[idx] == "bedroom_door") bedroom_DoorDialogBox()
-
-  else if(MoveBorder[idx] == "livingroom_sova") livingroom_sovaDialogBox()
-  else if(MoveBorder[idx] == "livingroom_door2bed")livingroom_door2bedDialogBox()
-
-  else if(MoveBorder[idx] == "livingroom_bigTable")livingroom_bigTableDialogBox()
-  else if(MoveBorder[idx] == "livingroom_door2outside")livingroom_door2outsideDialogBox()
-  else if(MoveBorder[idx] == "livingroom_door2parent")livingroom_door2parentDialogBox()
-  else if(MoveBorder[idx] == "livingroom_photo")livingroom_photoDialogBox()
-  else if(MoveBorder[idx] == "livingroom_flower")livingroom_flowerDialogBox()
+  else if (MoveBorder[idx] == "bedroom_closet") bedroom_ClosetDialogBox();
+  else if (MoveBorder[idx] == "bedroom_date") bedroom_DateDialogBox();
+  else if (MoveBorder[idx] == "bedroom_bookshelf") bedroom_BookSheifDialogBox();
+  else if (MoveBorder[idx] == "bedroom_door") bedroom_DoorDialogBox();
+  else if (MoveBorder[idx] == "livingroom_sova") livingroom_sovaDialogBox();
+  else if (MoveBorder[idx] == "livingroom_door2bed")
+    livingroom_door2bedDialogBox();
+  else if (MoveBorder[idx] == "livingroom_bigTable")
+    livingroom_bigTableDialogBox();
+  else if (MoveBorder[idx] == "livingroom_door2outside")
+    livingroom_door2outsideDialogBox();
+  else if (MoveBorder[idx] == "livingroom_door2parent")
+    livingroom_door2parentDialogBox();
+  else if (MoveBorder[idx] == "livingroom_photo") livingroom_photoDialogBox();
+  else if (MoveBorder[idx] == "livingroom_flower") livingroom_flowerDialogBox();
+  else if (MoveBorder[idx] == "livingroom_tv") {
+    console.log("interact with tv");
+    livingroom_TVdialogBox();
+  }
 }
 
 canInteract = -1;

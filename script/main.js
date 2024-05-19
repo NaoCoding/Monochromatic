@@ -248,8 +248,7 @@ function main_menu() {
     "image/main_menu_GitHubBtn.png",
     "main_menu_GitHubBtn"
   );
-  tvWindow = createDiv("");
-  tvWindow.hide()
+  
   
   main_menu_GitHubBtn.style("position", "absolute");
 

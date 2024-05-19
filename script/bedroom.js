@@ -88,7 +88,7 @@ async function bedroom_DateDialogBox(){
     dialogBox.show()
 
     if(ColorStatus == 0){
-        if(haveDiary == 1){
+        if(haveDiary > 0){
             dialogBoxFunction("2024/05/17")
             await delay(1500)
             dialogBoxFunction("It's the day for family vacation.")
@@ -227,7 +227,7 @@ async function bedroom_DoorDialogBox(){
         MoveBorder = ["livingroom_bigTable","livingroom_door2bed","livingroom_door2outside","livingroom_door2parent"
                         ,"livingroom_flower","livingroom_knife","livingroom_photo","livingroom_sova",
                         "livingroom_tv"]
-        PressEBorder = [0,1,2,3,5,6,7,8]
+        PressEBorder = [0,1,2,3,4,6,7,8]
 
         hideBedRoom()
     }

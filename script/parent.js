@@ -16,7 +16,7 @@ function parent_doorDialogBox(){
     MoveBorder = ["livingroom_bigTable","livingroom_door2bed","livingroom_door2outside","livingroom_door2parent"
                     ,"livingroom_flower","livingroom_knife","livingroom_photo","livingroom_sova",
                         "livingroom_tv"]
-    PressEBorder = [0,1,2,3,5,6,7,8]
+    PressEBorder = [0,1,2,3,4,6,7,8]
 
     hideParentRoom()
     isControlingCharacter = 1
@@ -240,6 +240,10 @@ async function UnlockYellow(){
     await delay(1500)
     dialogBoxFunction("I feel so happy...")
     await delay(2000)
+    dialogBoxFunction("This room...")
+    await delay(1500)
+    dialogBoxFunction("I consider that there are many secrets in the world of yellow...")
+    await delay(4500)
     isControlingCharacter = 1
 
 }

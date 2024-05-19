@@ -15,7 +15,7 @@ movedCount = 0
 function CharacterBtnDetection(e){
 
     var c = document.getElementById("mainCharacter")
-    var moveSpeed = 1
+    var moveSpeed = 1.7
 
     if(isControlingCharacter == 1){
         FlashLightWhite_getXY();

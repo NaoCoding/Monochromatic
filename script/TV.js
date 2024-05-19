@@ -12,7 +12,8 @@ async function livingroom_TVdialogBox() {
     
   }
   else{
-    
+    tvWindow = createDiv("");
+    tvWindow.hide()
     tvWindow.style("position", "absolute");
     tvWindow.style("top: 10%; left: 25%");
     tvWindow.style("width: 50%; height: 60%");
@@ -51,6 +52,8 @@ async function livingroom_TVdialogBox() {
         dialogBox.show();
         dialogBoxFunction("Emu Happy Birthday.");
         await delay(2500);
+        dialogBoxFunction("We went to a vacation at her birthday.");
+        await delay(3500);
         dialogBox.hide();
         sisterBirthday = 1;
       }

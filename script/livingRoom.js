@@ -381,7 +381,7 @@ async function livingroom_door2parentDialogBox(){
 
 async function livingroom_door2bedDialogBox(){
 
-    BedRoomBGM()
+    BGM()
     document.getElementById("pressESound").pause();
     document.getElementById("openDoorSound").volume = 0.5
     document.getElementById("openDoorSound").play();

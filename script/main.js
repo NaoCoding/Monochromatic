@@ -126,6 +126,11 @@ async function dev(e) {
     UnlockYellow()
     BGM()
   }
+  else if(e == 6){
+    dev(5)
+    await delay(9500)
+    start_sceneEnding()
+  }
 }
 
 async function startGame() {

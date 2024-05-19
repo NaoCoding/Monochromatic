@@ -110,15 +110,17 @@ async function colordisplay(){
             colorButton.style("background-size", "contain");
             
             
-            document.getElementById(flash_now[flash_idx]).style.display = "none";
-            flash_idx = ColorStatus
-            document.getElementById(flash_now[flash_idx]).style.display = "block";
+            if(ColorStatus < 3){
+              document.getElementById(flash_now[flash_idx]).style.display = "none";
+              flash_idx = ColorStatus
+              document.getElementById(flash_now[flash_idx]).style.display = "block";
+            }
             FlashLightWhite_getXY()
             if(ColorStatus == 2)RoomWall.style("borderColor","rgb(255,255,0)")
             if(ColorStatus == 1)RoomWall.style("borderColor","rgb(255,0,0)")
             if(ColorStatus == 0)RoomWall.style("borderColor","rgb(0,0,0)")
         }
-        if(ScreenNow == 3){
+        if(ScreenNow == 3 && ColorStatus < 3){
           parent_bigBed.attribute("src","image/"+cct[ColorStatus]+"parent_bigBed.png")
           parent_smallBed.attribute("src","image/"+cct[ColorStatus]+"parent_smallBed.png")
           parent_doll.attribute("src","image/"+cct[ColorStatus]+"parent_doll.png")
@@ -127,7 +129,7 @@ async function colordisplay(){
           parent_closet.attribute("src","image/"+cct[ColorStatus]+"bedroom_closet.png")
         }
 
-        if(ScreenNow == 2){
+        if(ScreenNow == 2 && ColorStatus < 3){
             
             if(ColorStatus == 1) livingroom_footPrint.show()
             else livingroom_footPrint.hide()
@@ -140,7 +142,7 @@ async function colordisplay(){
             livingroom_photo.attribute("src","image/"+cct[ColorStatus]+"livingroom_photo_label.png")
             livingroom_tv.attribute("src","image/"+cct[ColorStatus]+"livingroom_tv.png")
         }
-        if(ScreenNow == 1){
+        if(ScreenNow == 1 && ColorStatus < 3){
             bedroom_Bed.attribute("src","image/"+cct[ColorStatus]+"bedroom_bed.png")
             bedroom_pcDesk.attribute("src","image/"+cct[ColorStatus]+"bedroom_pcdesk.png")
             bedroom_date.attribute("src","image/"+cct[ColorStatus]+"bedroom_date.png")

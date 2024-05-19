@@ -98,7 +98,7 @@ async function livingroom_sovaDialogBox(){
 
         if(ColorStatus == 2){
             dialogBoxFunction("We used to sit here and watch TV together, I love them")
-            await delay(3000)
+            await delay(3000)   
         }
 
         if(ColorStatus == 0){
@@ -292,7 +292,7 @@ async function livingroom_door2parentDialogBox(){
             dialogBox.show()
 
         if (isParentDoorUnlock == 0){
-
+            passwordDoorDialogBox();
         }
 
         else if(isParentDoorUnlock == 1){

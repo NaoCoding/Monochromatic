@@ -1,4 +1,5 @@
 sisterBirthday = 0;
+let tvWindow
 
 async function livingroom_TVdialogBox() {
   isControlingCharacter = 0
@@ -8,9 +9,10 @@ async function livingroom_TVdialogBox() {
     await delay(3000);
     dialogBox.hide();
     isControlingCharacter = 1
+    
   }
   else{
-    let tvWindow = createDiv("");
+    
     tvWindow.style("position", "absolute");
     tvWindow.style("top: 10%; left: 25%");
     tvWindow.style("width: 50%; height: 60%");

@@ -1,6 +1,6 @@
 # Monochromatic
 
-### Play Online
+### Play Online 
 
 [GitHub Page Version](https://naocoding.github.io/Monochromatic/) <br>
 [Itch.io](https://naocoding.itch.io/monochromatic)

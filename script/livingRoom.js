@@ -76,7 +76,7 @@ async function UnlockRed(){
     dialogBox.show()
     BGM()
     dialogBoxFunction("Click the button to toggle Color of the world")
-    await delay(3250)
+    await delay(3500)
     dialogBox.hide()
     
     
@@ -105,6 +105,7 @@ async function livingroom_sovaDialogBox(){
             if(haveTV == 0){
                 dialogBoxFunction("You received a TV remote controler...")
                 haveTV = 1
+                controlerState = 1;
                 await delay(3000)
             }
             else{
@@ -245,11 +246,12 @@ async function livingroom_photoDialogBox(){
 }
 
 async function livingroom_door2outsideDialogBox(){
-
+    
     isControlingCharacter = 0
         dialogBox.show()
         if(ColorStatus == 2){
             // 最後的密碼
+            passwordDoorForBottomDialogBox();
         }
 
         if(ColorStatus == 1){

@@ -1,5 +1,6 @@
 let FlashLightWhite; // 滑鼠手電筒
 let FlashLightRed; // 滑鼠手電筒
+let FlashLightYellow; // 滑鼠手電筒
 let background; // 背景
 let main_menu_startGameBtn; // 開始遊戲按鈕
 let main_menu_GitHubBtn; // 開始畫面Github Repo Btn
@@ -102,6 +103,19 @@ async function dev(e) {
     FlashLightRed.show()
     FlashLightWhite_getXY()
   }
+  else if(e == 4){
+    dev(3)
+    isParentDoorUnlock = 2
+    dialogBoxFunction("You opened the door")
+    await delay(2000)
+    fadeOutAnimation(75);
+    await delay(1500);
+    hideLivingRoom()
+    start_SceneParentRoom()
+
+    fadeInAnimation(75);
+    await delay(1000);
+  }
 }
 
 async function startGame() {
@@ -189,6 +203,10 @@ function main_menu() {
   FlashLightRed = createElement("div");
   FlashLightRed.attribute("id", "FlashLightRed");
   FlashLightRed.hide();
+
+  FlashLightYellow = createElement("div");
+  FlashLightYellow.attribute("id", "FlashLightYellow");
+  FlashLightYellow.hide();
 
   document.body.style.cursor = "auto";
 

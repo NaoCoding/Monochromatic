@@ -118,6 +118,15 @@ async function colordisplay(){
             if(ColorStatus == 1)RoomWall.style("borderColor","rgb(255,0,0)")
             if(ColorStatus == 0)RoomWall.style("borderColor","rgb(0,0,0)")
         }
+        if(ScreenNow == 3){
+          parent_bigBed.attribute("src","image/"+cct[ColorStatus]+"parent_bigBed.png")
+          parent_smallBed.attribute("src","image/"+cct[ColorStatus]+"parent_smallBed.png")
+          parent_doll.attribute("src","image/"+cct[ColorStatus]+"parent_doll.png")
+          parent_photo_label.attribute("src","image/"+cct[ColorStatus]+"parent_photo_label.png")
+          parent_door.attribute("src","image/"+cct[ColorStatus]+"livingroom_door2outside.png")
+          parent_closet.attribute("src","image/"+cct[ColorStatus]+"bedroom_closet.png")
+        }
+
         if(ScreenNow == 2){
             
             if(ColorStatus == 1) livingroom_footPrint.show()

@@ -25,6 +25,7 @@ function showLivingRoom(){
 }
 
 function hideLivingRoom(){
+    livingroom_footPrint.hide()
     livingroom_bigTable.hide()
     livingroom_tv.hide()
     livingroom_sova.hide()
@@ -246,7 +247,7 @@ async function livingroom_door2parentDialogBox(){
             dialogBox.show()
 
         if (isParentDoorUnlock == 0){
-            
+
         }
 
         else if(isParentDoorUnlock == 1){
@@ -263,15 +264,14 @@ async function livingroom_door2parentDialogBox(){
             
         }
         else{
-            showLivingRoom()
+            showParentRoom()
             ScreenNow = 3
-            mainCharacter.style("top:55%;left:20%")
+            mainCharacter.style("top:60%;left:70%")
             FlashLightWhite_getXY()
             bedroomKeyState = 0;
-            MoveBorder = ["livingroom_bigTable","livingroom_door2bed","livingroom_door2outside","livingroom_door2parent"
-                            ,"livingroom_flower","livingroom_knife","livingroom_photo","livingroom_sova",
-                            "livingroom_tv"]
-            PressEBorder = [0,1,2,3,4,5,6,7,8]
+            MoveBorder = ["parent_bigBed","parent_smallBed","parent_doll","parent_photo_label"
+                    ,"parent_closet","parent_door"]
+            PressEBorder = [0,1,2,3,4,5]
 
             hideLivingRoom()
         }

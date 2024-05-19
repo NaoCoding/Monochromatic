@@ -24,6 +24,16 @@ Required keyboard and mouse to play.
 ```
 ![image](https://github.com/NaoCoding/Monochromatic/assets/86964895/97bb1f38-eeae-47ff-9f83-eeeb0226c4a8)
 
+### Teamworks
+
+```
+NaoCoding : General Codes / Publish the game
+          Scenes Animations / Game Design / Main Menu
+MaxWuTW : General Codes
+          Inventorys / Progess Bar / TV & Password Enter UI
+EnLiao : All the Images / Drawing / Game Design / Map Design
+```
+
 ### Screenshots
 
 ![螢幕擷取畫面 2024-05-20 004857](https://github.com/NaoCoding/Monochromatic/assets/86964895/3caf099d-cafd-4b75-85f0-c30f3edfcd97)

@@ -5,6 +5,13 @@
 [GitHub Page Version](https://naocoding.github.io/Monochromatic/) <br>
 [Itch.io](https://naocoding.itch.io/monochromatic)
 
+### License of Assets
+
+```
+Images are forbidden to either reuse or shared without getting the permission from us.
+All the images are drawn by our team members and we forbid any commercial usage.
+```
+
 ### Overview
 ```
 1st award to : Normal Game Jam 2024

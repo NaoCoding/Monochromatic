@@ -34,6 +34,7 @@ isMainScreen = 1;
 
 async function dev(e) {
   if (e == 1) {
+    BGM()
     ScreenNow = 1
     isMainScreen = 0;
     isControlingCharacter = 1;
@@ -77,6 +78,7 @@ async function dev(e) {
       hideBedRoom()
       bedroom_DoorDialogBox()
       background.attribute("src", "image/white_background.png");
+      BGM()
     }
     else{
       ScreenNow = 2
@@ -92,6 +94,7 @@ async function dev(e) {
       hideBedRoom()
       bedroom_DoorDialogBox()
       background.attribute("src", "image/white_background.png");
+      BGM()
     }
   }
   else if(e==3){
@@ -102,6 +105,7 @@ async function dev(e) {
     FlashLightWhite.hide()
     FlashLightRed.show()
     FlashLightWhite_getXY()
+    BGM()
   }
   else if(e == 4){
     dev(3)
@@ -115,10 +119,12 @@ async function dev(e) {
 
     fadeInAnimation(75);
     await delay(1000);
+    BGM()
   }
   else if(e == 5){
     dev(4)
     UnlockYellow()
+    BGM()
   }
 }
 
@@ -179,6 +185,8 @@ async function startGame() {
   fadeInAnimation(75);
   await delay(2250);
   document.getElementById("start_Game_BGM").pause();
+  BGM()
+  
 }
 
 function main_menu() {

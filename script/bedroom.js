@@ -121,6 +121,21 @@ async function bedroom_DateDialogBox(){
         isControlingCharacter = 1
     }
 
+    else if(ColorStatus == 2){
+        dialogBoxFunction("I love birthday...")
+        await delay(2000)
+        dialogBoxFunction("Dad and Mom and Sister always celebrate my birthday...")
+        await delay(4000)
+        dialogBoxFunction("We sang the birthday song, ate the birthday cake...")
+        await delay(4000)
+        dialogBoxFunction("It's the best thing ever!")
+        await delay(2500)
+
+
+        dialogBox.hide()
+        isControlingCharacter = 1
+    }
+
     
     
 
@@ -139,7 +154,7 @@ async function bedroom_pcDeskDialogBox(){
         dialogBoxFunction("Undoubtedly, it is a computer...")
         await delay(3000)
     }
-    else if(touchSafeBox >= 1){
+    else if(touchSafeBox == 1){
         touchSafeBox = 2
         safeBoxKeyState = 1;
         computerKeyState = 0;
@@ -157,6 +172,14 @@ async function bedroom_pcDeskDialogBox(){
 
 
     }
+    else if(touchSafeBox == 2){
+        dialogBoxFunction("This is a computer")
+        await delay(2000)
+        dialogBoxFunction("Yes, it is a computer...")
+        await delay(2500)
+        dialogBoxFunction("Undoubtedly, it is a computer...")
+        await delay(3000)
+    }
     
 
 
@@ -173,6 +196,9 @@ async function bedroom_DoorDialogBox(){
     dialogBox.show()
 
     if(haveBedRoomKey == 1){
+        document.getElementById("pressESound").pause();
+        document.getElementById("openDoorSound").volume = 0.5
+        document.getElementById("openDoorSound").play();
         haveBedRoomKey = 2
         dialogBoxFunction("You opened the door")
         await delay(2000)
@@ -190,6 +216,9 @@ async function bedroom_DoorDialogBox(){
         await delay(2000)
     }
     else{
+        document.getElementById("pressESound").pause();
+        document.getElementById("openDoorSound").volume = 0.5
+        document.getElementById("openDoorSound").play();
         showLivingRoom()
         ScreenNow = 2
         mainCharacter.style("top:55%;left:20%")
@@ -270,6 +299,10 @@ async function bedroom_BookSheifDialogBox(){
     else if(ColorStatus == 1){
         dialogBoxFunction("I love Red! I am happy now !!!")
         await delay(2250)
+    }
+    else if(ColorStatus == 2){
+        dialogBoxFunction("I think you are happy now, aren't you")
+        await delay(3000)
     }
     
    

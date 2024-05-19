@@ -28,7 +28,7 @@ function CharacterBtnDetection(e){
 
         if(e.which == 69){
             if(canInteract != -1){
-                document.getElementById("pressESound").volume = 0.05
+                document.getElementById("pressESound").volume = 0.2
                 document.getElementById("pressESound").play();
                 InteractObject(canInteract)
             }

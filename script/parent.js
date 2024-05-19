@@ -4,6 +4,9 @@ let parent_closet,parent_door
 
 function parent_doorDialogBox(){
 
+    document.getElementById("pressESound").pause();
+    document.getElementById("openDoorSound").volume = 0.5
+    document.getElementById("openDoorSound").play();
     isControlingCharacter = 0
     showLivingRoom()
     ScreenNow = 2

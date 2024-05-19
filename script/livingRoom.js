@@ -333,6 +333,9 @@ async function livingroom_door2parentDialogBox(){
                 await delay(1500)
             }
             else if(isParentDoorUnlock == 1){
+                document.getElementById("pressESound").pause();
+                document.getElementById("openDoorSound").volume = 0.5
+                document.getElementById("openDoorSound").play();
                 isParentDoorUnlock = 2
                 dialogBoxFunction("You opened the door")
                 await delay(2000)
@@ -347,6 +350,9 @@ async function livingroom_door2parentDialogBox(){
             }
             else{
                 showParentRoom()
+                document.getElementById("pressESound").pause();
+                document.getElementById("openDoorSound").volume = 0.5
+                document.getElementById("openDoorSound").play();
                 ScreenNow = 3
                 mainCharacter.style("top:60%;left:70%")
                 FlashLightWhite_getXY()
@@ -367,7 +373,10 @@ async function livingroom_door2parentDialogBox(){
 
 async function livingroom_door2bedDialogBox(){
 
-
+    BedRoomBGM()
+    document.getElementById("pressESound").pause();
+    document.getElementById("openDoorSound").volume = 0.5
+    document.getElementById("openDoorSound").play();
     showBedRoom()
     hideLivingRoom()
     mainCharacter.style("top:58%;left:73%")

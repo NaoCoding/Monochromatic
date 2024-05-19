@@ -72,10 +72,20 @@ function InventoryButton_Style(button) {
 }
 // 點擊到切換顏色的按鈕時會觸發
 function triggerColorChanged() {
-  if(isControlingCharacter == 1){
-    if(ColorStatus < UnlockedStatus) ColorStatus += 1;
-    else ColorStatus = 0
+  if(UnlockedStatus == 0){
+    document.getElementById("BtnFailed_Sound").volume = 0.5
+    document.getElementById("BtnFailed_Sound").play();
   }
+  else{
+    document.getElementById("cChangeSound").volume = 0.5
+    document.getElementById("cChangeSound").play();
+    BGM()
+    if(isControlingCharacter == 1){
+      if(ColorStatus < UnlockedStatus) ColorStatus += 1;
+      else ColorStatus = 0
+    }
+  }
+  
 }
 
 // 背包界面

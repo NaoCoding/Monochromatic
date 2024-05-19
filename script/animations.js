@@ -1,4 +1,4 @@
-var flash_now = ["FlashLightWhite","FlashLightRed"]
+var flash_now = ["FlashLightWhite","FlashLightRed","FlashLightYellow"]
 var flash_idx = 0;
 async function story_tellFunction(target) {
   story_tellLabel.html("", 0);
@@ -98,7 +98,7 @@ start_menu_BackGroundAnimation();
 
 async function colordisplay(){
 
-    var cct = ["","red/"]
+    var cct = ["","red/","yellow/"]
 
     var q = setInterval(() =>{
         
@@ -114,6 +114,7 @@ async function colordisplay(){
             flash_idx = ColorStatus
             document.getElementById(flash_now[flash_idx]).style.display = "block";
             FlashLightWhite_getXY()
+            if(ColorStatus == 2)RoomWall.style("borderColor","rgb(255,255,0)")
             if(ColorStatus == 1)RoomWall.style("borderColor","rgb(255,0,0)")
             if(ColorStatus == 0)RoomWall.style("borderColor","rgb(0,0,0)")
         }

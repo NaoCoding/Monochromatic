@@ -7,6 +7,7 @@ let photoLabel
 
 ColorStatus = 0
 UnlockedStatus = 0
+isParentDoorUnlock = 0
 var photoAppear = 1
 
 haveTV = 0
@@ -240,6 +241,47 @@ async function livingroom_door2parentDialogBox(){
 
         if(ColorStatus == 1){
             
+
+            isControlingCharacter = 0
+            dialogBox.show()
+
+        if (isParentDoorUnlock == 0){
+            
+        }
+
+        else if(isParentDoorUnlock == 1){
+            isParentDoorUnlock = 2
+            dialogBoxFunction("You opened the door")
+            await delay(2000)
+            fadeOutAnimation(75);
+            await delay(1500);
+            hideLivingRoom()
+            start_SceneParentRoom()
+
+            fadeInAnimation(75);
+            await delay(1000);
+            
+        }
+        else{
+            showLivingRoom()
+            ScreenNow = 3
+            mainCharacter.style("top:55%;left:20%")
+            FlashLightWhite_getXY()
+            bedroomKeyState = 0;
+            MoveBorder = ["livingroom_bigTable","livingroom_door2bed","livingroom_door2outside","livingroom_door2parent"
+                            ,"livingroom_flower","livingroom_knife","livingroom_photo","livingroom_sova",
+                            "livingroom_tv"]
+            PressEBorder = [0,1,2,3,4,5,6,7,8]
+
+            hideLivingRoom()
+        }
+
+
+
+
+        dialogBox.hide()
+        isControlingCharacter = 1
+
         }
 
         if(ColorStatus == 0){

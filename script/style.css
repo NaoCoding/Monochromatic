@@ -31,6 +31,29 @@ body{
     );
 }
 
+#FlashLightYellow{
+    --Xpos: 50vw;
+    --Ypos: 50vh;
+}
+#FlashLightYellow::before{
+    content:"";
+    display:block;
+    width:100%;
+    height:100%;
+    top:0px;
+    left:0px;
+    z-index: 4;
+    pointer-events: none;
+    position: absolute;
+    
+
+    background: radial-gradient(
+        circle 18em at var(--Xpos) var(--Ypos),
+        rgba(255, 255, 0, 0),
+        rgba(255,255,0,1)
+    );
+}
+
 
 #FlashLightWhite{
     --Xpos: 50vw;

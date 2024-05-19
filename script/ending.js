@@ -252,12 +252,60 @@ async function start_sceneEnding(){
             await delay(5)
         }
 
+
         main_menu_startGameBtn.show()
         main_menu_GitHubBtn.show()
         main_menu_startGameBtn.attribute("onclick","")
         main_menu_GitHubBtn.attribute("onclick","")
         main_menu_GitHubBtn.style("zIndex:18390840394801840810")
         main_menu_startGameBtn.style("zIndex:18390840394801840810")
+
+
+        cc = 0
+        now = 6
+        last = 0
+        var q = setInterval(() =>{
+            now = now == 6 ? 13 : 6
+            ending_background2.attribute("src","image/ending_background" + (now).toString() + ".png")
+            cc += 1
+            if(cc == 10){
+                setInterval(q);
+                last = 1
+            }
+
+
+        },500
+        )
+
+        while(last == 0){
+            await delay(5)
+        }
+        cc = 0
+        t = 1
+        ending_background1.attribute("src","image/black_background.png")
+        ending_background1.show()
+        var q = setInterval(() =>{
+            document.getElementById("ending_background2").style.opacity = t
+            document.getElementById("ending_background1").style.opacity = 1-t
+            t -= 0.01
+            if(t <= 0){
+                clearInterval(q)
+                cc = 1
+            }
+        },25)
+        
+        while(cc ==0){
+            await delay(5)
+        }
+        story_tellLabel.show()
+        main_menu_GitHubBtn.hide()
+        main_menu_startGameBtn.hide()
+        story_tellLabel.style("zIndex","278529375873298523957982375892735892")
+        story_tellFunction(
+            'I hope you can be happy everyday'
+          );
+
+        
         
 
 
@@ -282,7 +330,7 @@ async function start_sceneEnding(){
         }
         dialogBox.show()
         dialogBox.style("fontFamily:Arial;fontSize:36px;")
-        dialogBoxFunction("Sorry Brother... I didn't know your fealing...")
+        dialogBoxFunction("Sorry Brother... I didn't know your feeling...")
         await delay(4000)
         dialogBox.style("fontFamily:cursive;fontSize:36px;")
         dialogBoxFunction("Sorry Emu... GoodBye...")
@@ -330,6 +378,49 @@ async function start_sceneEnding(){
         main_menu_GitHubBtn.attribute("onclick","")
         main_menu_GitHubBtn.style("zIndex:18390840394801840810")
         main_menu_startGameBtn.style("zIndex:18390840394801840810")
+
+        cc = 0
+        now = 12
+        last = 0
+        var q = setInterval(() =>{
+            ending_background2.attribute("src","image/ending_background" + (now).toString() + ".png")
+            cc += 1
+            if(cc == 50){
+                setInterval(q);
+                last = 1
+            }
+
+
+        },100
+        )
+
+        while(last == 0){
+            await delay(5)
+        }
+        cc = 0
+        t = 1
+        ending_background1.attribute("src","image/black_background.png")
+        ending_background1.show()
+        var q = setInterval(() =>{
+            document.getElementById("ending_background2").style.opacity = t
+            document.getElementById("ending_background1").style.opacity = 1-t
+            t -= 0.01
+            if(t <= 0){
+                clearInterval(q)
+                cc = 1
+            }
+        },25)
+        
+        while(cc ==0){
+            await delay(5)
+        }
+        story_tellLabel.show()
+        main_menu_GitHubBtn.hide()
+        main_menu_startGameBtn.hide()
+        story_tellLabel.style("zIndex","278529375873298523957982375892735892")
+        story_tellFunction(
+            'I hope you can be happy in your next life...'
+          );
     }
 
     

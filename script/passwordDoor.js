@@ -28,7 +28,7 @@ async function passwordDoorDialogBox() {
 
   async function checkPassword() {
     if (currentInput === "0517") {
-      isParent = 1;
+      isParentDoorUnlock = 1;
       dialogBox.show();
       dialogBoxFunction("Unlocked!");
       await delay(3000);

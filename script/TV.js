@@ -37,10 +37,14 @@ async function livingroom_TVdialogBox() {
     } else {
       tvScreen.style("background-color", "black");
       dialogBox.show();
-      dialogBoxFunction("Happy birthday to you. Happy birthday to you.");
-      await delay(4000);
-      dialogBoxFunction("Today is ......");
-      await delay(2000);
+      // dialogBoxFunction("Happy birthday to you. Happy birthday to you.");
+      dialogBoxFunction("This little flower is so cute");
+      await delay(3000);
+      // dialogBoxFunction("Today is ......");
+      dialogBoxFunction("Mom loves growing these lovely plants.");
+      await delay(3500);
+      // dialogBoxFunction("This little flower is so cute");
+      // await delay(2000);
       dialogBox.hide();
       currentChannel = "";
       channelDisplay.html("0");

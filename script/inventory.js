@@ -1,25 +1,50 @@
-let closetKeyState = 0, diaryState = 0, bedroomKeyState = 0, computerKeyState = 0, safeBoxKeyState = 0;
-inventoryItemBag = [["closet_key.png", 0], ["diary.png", 0], ["door_key.png", 0], ["ToComputer.png", 0], ["password_paper.png", 0]];
+let closetKeyState = 0,
+  diaryState = 0,
+  bedroomKeyState = 0,
+  computerKeyState = 0,
+  safeBoxKeyState = 0,
+  controlerState = 0;
+inventoryItemBag = [
+  ["closet_key.png", 0],
+  ["diary.png", 0],
+  ["door_key.png", 0],
+  ["ToComputer.png", 0],
+  ["password_paper.png", 0],
+  ["controler.png", 0],
+];
 
-
-function update_inventory(){
-    if(closetKeyState == 1){
-        inventoryItemBag[0][1] = 1;
-    }
-    if(diaryState == 1){
-        inventoryItemBag[1][1] = 1;
-    }
-    if(bedroomKeyState == 1){
-        inventoryItemBag[2][1] = 1;
-    }
-    if(computerKeyState == 1){
-        inventoryItemBag[3][1] = 1;
-    }
-    if(safeBoxKeyState == 1){
-        inventoryItemBag[4][1] = 1;
-    }
+function update_inventory() {
+  if (closetKeyState == 1) {
+    inventoryItemBag[0][1] = 1;
+  } else {
+    inventoryItemBag[0][1] = 0;
+  }
+  if (diaryState == 1) {
+    inventoryItemBag[1][1] = 1;
+  } else {
+    inventoryItemBag[1][1] = 0;
+  }
+  if (bedroomKeyState == 1) {
+    inventoryItemBag[2][1] = 1;
+  } else {
+    inventoryItemBag[2][1] = 0;
+  }
+  if (computerKeyState == 1) {
+    inventoryItemBag[3][1] = 1;
+  } else {
+    inventoryItemBag[3][1] = 0;
+  }
+  if (safeBoxKeyState == 1) {
+    inventoryItemBag[4][1] = 1;
+  } else {
+    inventoryItemBag[4][1] = 0;
+  }
+  if (controlerState == 1) {
+    inventoryItemBag[5][1] = 1;
+  } else {
+    inventoryItemBag[5][1] = 0;
+  }
 }
-
 function inventoryCheck(start){
     for(let i = start;i < inventoryItemBag.length;i++){
         if(inventoryItemBag[i][1] == 1){
@@ -32,43 +57,74 @@ function inventoryCheck(start){
 async function handleItemClick(itemId) {
     switch (itemId) {
         case 0:
-            console.log("Closet Key clicked");
-            dialogBox.show();
-            dialogBoxFunction("Wow! A special Key.");
-            await delay(2000);
-            dialogBox.hide();
+            if(isControlingCharacter == 1){
+                isControlingCharacter = 0;
+                console.log("Closet Key clicked");
+                dialogBox.show();
+                dialogBoxFunction("Wow! A special Key.");
+                await delay(2000);
+                dialogBox.hide();
+                isControlingCharacter = 1;
+            }
             break;
         case 1:
-            console.log("Diary clicked");
-            dialogBox.show();
-            dialogBoxFunction("I am tired. My life is meaningless.");
-            await delay(4000);
-            dialogBoxFunction("Today We went on a vacation, but what day is today?");
-            await delay(4000);
-            dialogBoxFunction("Oh no. My brain can't remember what day it was");
-            await delay(4000);
-            dialogBox.hide();
+            if(isControlingCharacter == 1){
+                isControlingCharacter = 0;
+                console.log("Diary clicked");
+                dialogBox.show();
+                dialogBoxFunction("I am tired. My life is meaningless.");
+                await delay(4000);
+                dialogBoxFunction("Today We went on a vacation, but what day is today?");
+                await delay(4000);
+                dialogBoxFunction("Oh no. My brain can't remember what day it was!!!!");
+                await delay(4000);
+                dialogBox.hide();
+                isControlingCharacter = 1;
+            }
             break;
         case 2:
-            console.log("Bedroom Key clicked");
-            dialogBox.show();
-            dialogBoxFunction("Now is time to get out of the roooooom.");
-            await delay(3000);
-            dialogBox.hide();
+            if(isControlingCharacter == 1){
+                isControlingCharacter = 0;
+                console.log("Bedroom Key clicked");
+                dialogBox.show();
+                dialogBoxFunction("Now is time to get out of the roooooom.");
+                await delay(3000);
+                dialogBox.hide();
+                isControlingCharacter = 1;
+            }
             break;
         case 3:
-            console.log("Password Paper clicked");
-            dialogBox.show();
-            dialogBoxFunction("Password: 87299403");
-            await delay(2000);
-            dialogBox.hide();
+            if(isControlingCharacter == 1){
+                isControlingCharacter = 0;
+                console.log("Password Paper clicked");
+                dialogBox.show();
+                dialogBoxFunction("Password: 87299403");
+                await delay(2000);
+                dialogBox.hide();
+                isControlingCharacter = 1;
+            }
             break;
         case 4:
-            console.log("To Safe Box clicked");
-            dialogBox.show();
-            dialogBoxFunction("Maybe somewhere need this key.");
-            await delay(3500);
-            dialogBox.hide();
+            if(isControlingCharacter == 1){
+                isControlingCharacter = 0;
+                console.log("To Safe Box clicked");
+                dialogBox.show();
+                dialogBoxFunction("Maybe somewhere need this key.");
+                await delay(3500);
+                dialogBox.hide();
+                isControlingCharacter = 1;
+            }
+            break;
+        case 5:
+            if(isControlingCharacter == 1){
+                isControlingCharacter = 0;
+                console.log("Controller Clicked");
+                dialogBox.show();
+                dialogBoxFunction("There may be some important information on the TV.");
+                await delay(4000);
+                dialogBox.hide();
+                isControlingCharacter = 1;
+            }
             break;
         default:
             console.log("Unknown item clicked");
@@ -77,7 +133,7 @@ async function handleItemClick(itemId) {
 }
 
 // 背包界面
-function InventoryInterface() {
+async function InventoryInterface() {
     // 創建道具紀錄背包視窗
     inventoryWindow = createDiv("");
     inventoryWindow.style("position", "absolute");
@@ -174,6 +230,7 @@ function InventoryInterface() {
       item.style("width: 50px; height: 50px");
       item.style("background-color: lightgrey; border: 1px solid black; border-radius: 10px");
       item.style("display: flex; align-items: center; justify-content: center");
+      item.style("cursor: pointer");
       val = inventoryCheck(start)
       if(val[0] != null){
         console.log(val[0])
@@ -188,6 +245,7 @@ function InventoryInterface() {
 
       // 添加點擊事件
       item.mousePressed(() => {
+        // isControlingCharacter = 1;
         let itemId = parseInt(item.attribute("data-item-id"));
         handleItemClick(itemId);
       });

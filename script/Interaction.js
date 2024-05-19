@@ -48,6 +48,7 @@ function InteractObject(idx) {
   else if(MoveBorder[idx] == "parent_smallBed")parent_smallBedDialogBox()
   else if(MoveBorder[idx] == "parent_bigBed")parent_bigBedDialogBox()
   else if(MoveBorder[idx] == "parent_photo_label")parent_photo_labelDialogBox()
+  //else if(MoveBorder[idx] == "livingroom_knife")
 }
 
 canInteract = -1;

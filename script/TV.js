@@ -1,11 +1,13 @@
 sisterBirthday = 0;
 
 async function livingroom_TVdialogBox() {
+  isControlingCharacter = 0
   if(controlerState == 0){
     dialogBox.show();
     dialogBoxFunction("What should you pick up before watching TV?");
     await delay(3000);
     dialogBox.hide();
+    isControlingCharacter = 1
   }
   else{
     let tvWindow = createDiv("");
@@ -62,6 +64,7 @@ async function livingroom_TVdialogBox() {
         dialogBox.hide();
         currentChannel = "";
         channelDisplay.html("0");
+        
       }
     }
 
@@ -88,7 +91,7 @@ async function livingroom_TVdialogBox() {
     closeButton.style(
       "margin-top: 20px; padding: 10px; font-size: 16px; border: 1px solid black; border-radius: 5px; cursor: pointer;"
     );
-    closeButton.mousePressed(() => tvWindow.hide());
+    closeButton.attribute("onclick","tvWindow.hide();isControlingCharacter=1");
     closeButton.parent(tvWindow);
 
     tvWindow.show();

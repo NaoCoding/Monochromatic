@@ -227,7 +227,7 @@ async function bedroom_DoorDialogBox(){
         MoveBorder = ["livingroom_bigTable","livingroom_door2bed","livingroom_door2outside","livingroom_door2parent"
                         ,"livingroom_flower","livingroom_knife","livingroom_photo","livingroom_sova",
                         "livingroom_tv"]
-        PressEBorder = [0,1,2,3,4,5,6,7,8]
+        PressEBorder = [0,1,2,3,5,6,7,8]
 
         hideBedRoom()
     }

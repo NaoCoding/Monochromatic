@@ -419,8 +419,7 @@ async function start_sceneEnding(){
         main_menu_startGameBtn.hide()
         story_tellLabel.style("zIndex","278529375873298523957982375892735892")
         story_tellFunction(
-            'I hope you can be happy in your next life...'
-          );
+            'I hope you can be happy in your next life...');
     }
 
     

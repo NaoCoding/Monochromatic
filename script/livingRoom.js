@@ -75,6 +75,10 @@ async function UnlockRed(){
     isControlingCharacter = 1
     dialogBox.show()
     BGM()
+    dialogBoxFunction("The blood....")
+    await delay(1500)
+    dialogBoxFunction("I feel crazy!!!!")
+    await delay(2000)
     dialogBoxFunction("Click the button to toggle Color of the world")
     await delay(3500)
     dialogBox.hide()
@@ -402,7 +406,7 @@ function start_SceneLivingRoom(){
     MoveBorder = ["livingroom_bigTable","livingroom_door2bed","livingroom_door2outside","livingroom_door2parent"
                     ,"livingroom_flower","livingroom_knife","livingroom_photo","livingroom_sova",
                     "livingroom_tv"]
-    PressEBorder = [0,1,2,3,4,5,6,7,8]
+    PressEBorder = [0,1,2,3,5,6,7,8]
     WallBorder = [15,85,15,85]
 
     livingroom_bigTable = createImg("image/livingroom_bigTable.png","bed")

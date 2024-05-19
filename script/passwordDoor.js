@@ -36,7 +36,7 @@ async function passwordDoorDialogBox() {
         doorWindow.hide();
       } else {
         dialogBox.show();
-        dialogBoxFunction("Incorrect password, please try again.");
+        dialogBoxFunction("Incorrect password, please try again... Hint: Birthday");
         await delay(3000);
         dialogBox.hide();
         currentInput = "";

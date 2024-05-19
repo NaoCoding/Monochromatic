@@ -21,7 +21,122 @@ function parent_doorDialogBox(){
 }
 
 
-function parent_dollDialogBox(){
+async function parent_smallBedDialogBox(){
+
+    isControlingCharacter = 0
+    dialogBox.show()
+
+    if(ColorStatus == 2){
+        dialogBoxFunction("My sister slept here and I enjoy to play with her!")
+        await delay(3500)
+        dialogBoxFunction("She is my favorite!")
+        await delay(2000)
+    }
+
+    if(ColorStatus == 1){
+        dialogBoxFunction("Hmm.. This bed, I hate her. She stole the love....")
+        await delay(3500)
+    }
+
+    if(ColorStatus == 0){
+        dialogBoxFunction("This is my sister's bed")
+        await delay(2250)
+    }
+
+
+    isControlingCharacter = 1
+    dialogBox.hide()
+
+}
+
+async function parent_bigBedDialogBox(){
+
+    isControlingCharacter = 0
+    dialogBox.show()
+
+    if(ColorStatus == 2){
+        dialogBoxFunction("I love my parents! I used to slept with them when I was a kid")
+        await delay(4000)
+        dialogBoxFunction("I love them!!!")
+        await delay(2000)
+    }
+
+    if(ColorStatus == 1){
+        dialogBoxFunction("Hmm.. This bed, I should kill it's owner...")
+        await delay(3000)
+    }
+
+    if(ColorStatus == 0){
+        dialogBoxFunction("This is my parent's bed")
+        await delay(2250)
+    }
+
+
+    isControlingCharacter = 1
+    dialogBox.hide()
+
+}
+
+async function parent_closetDialogBox(){
+
+    isControlingCharacter = 0
+    dialogBox.show()
+
+    if(ColorStatus == 2){
+        dialogBoxFunction("We used to play hide and seek together...")
+        await delay(3000)
+        dialogBoxFunction("My favorite hidding spot was this closet...")
+        await delay(3000)
+    }
+
+    if(ColorStatus == 1){
+        dialogBoxFunction("This closet looks great to hide corpse...")
+        await delay(3000)
+    }
+
+    if(ColorStatus == 0){
+        dialogBoxFunction("This is a closet")
+        await delay(2000)
+    }
+
+
+    isControlingCharacter = 1
+    dialogBox.hide()
+
+}
+
+
+async function parent_dollDialogBox(){
+
+    isControlingCharacter = 0
+    if(UnlockedStatus == 1){
+        UnlockYellow()
+    }
+    else{
+        if(ColorStatus == 1){
+            dialogBox.show()
+            dialogBoxFunction("I hate toys, since they only bought for sister...")
+            await delay(3000)
+            dialogBox.hide()
+        }
+        if(ColorStatus == 0){
+            dialogBox.show()
+            dialogBoxFunction("Toys.... Sister's favorite toys...")
+            await delay(2250)
+            dialogBox.hide()
+        }
+        if(ColorStatus == 2){
+            dialogBox.show()
+            dialogBoxFunction("I used to play toys with my sister OuO")
+            await delay(3000)
+            dialogBox.hide()
+        }
+    }
+
+
+
+
+    isControlingCharacter = 1
 
 }
 

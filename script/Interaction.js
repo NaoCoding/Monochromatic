@@ -40,9 +40,9 @@ function InteractObject(idx) {
 
   else if(MoveBorder[idx] == "parent_door")parent_doorDialogBox()
   else if(MoveBorder[idx] == "parent_doll")parent_dollDialogBox()
-  else if(MoveBorder[idx] == "livingroom_flower")livingroom_flowerDialogBox()
-  else if(MoveBorder[idx] == "livingroom_flower")livingroom_flowerDialogBox()
-  else if(MoveBorder[idx] == "livingroom_flower")livingroom_flowerDialogBox()
+  else if(MoveBorder[idx] == "parent_closet")parent_closetDialogBox()
+  else if(MoveBorder[idx] == "parent_smallBed")parent_smallBedDialogBox()
+  else if(MoveBorder[idx] == "parent_bigBed")parent_bigBedDialogBox()
   else if(MoveBorder[idx] == "livingroom_flower")livingroom_flowerDialogBox()
 }
 

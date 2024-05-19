@@ -94,6 +94,11 @@ async function livingroom_sovaDialogBox(){
             await delay(3000)
         }
 
+        if(ColorStatus == 2){
+            dialogBoxFunction("We used to sit here and watch TV together, I love them")
+            await delay(3000)
+        }
+
         if(ColorStatus == 0){
             if(haveTV == 0){
                 dialogBoxFunction("You received a TV remote controler...")
@@ -121,6 +126,9 @@ async function living_roomSovaAnimation(){
         now = now == 1 ? 2 : 1;
         if(ColorStatus == 1){
             livingroom_sova.attribute("src","image/red/livingroom_sova" + (now).toString() + ".png")
+        }
+        else if(ColorStatus == 2){
+            livingroom_sova.attribute("src","image/yellow/livingroom_sova" + (now).toString() + ".png")
         }
         else{
             livingroom_sova.attribute("src","image/livingroom_sova" + (now).toString() + ".png")
@@ -177,7 +185,8 @@ async function livingroom_photoDialogBox(){
     photoAppear = 1
     photoLabel.style("zIndex:10000")
     photoLabel.attribute("onclick","photoAppear = 0")
-    if(ColorStatus == 1)photoLabel.attribute("src","image/red/livingroom_photo.png")
+    if(ColorStatus == 2)photoLabel.attribute("src","image/yellow/livingroom_photo.png")
+    else if(ColorStatus == 1)photoLabel.attribute("src","image/red/livingroom_photo.png")
     else if(ColorStatus == 0)photoLabel.attribute("src","image/livingroom_photo.png")
     var q =  setInterval(() => {
         if(photoAppear == 0){
@@ -190,6 +199,14 @@ async function livingroom_photoDialogBox(){
     },50)
     while(photoAppear == 1){
         await delay(100)
+    } 
+    if(ColorStatus == 2){
+        dialogBox.show()
+        dialogBoxFunction("I love my family....")
+        await delay(2250)
+        dialogBoxFunction("They treat me well and I love them...")
+        await delay(3000)
+        dialogBox.hide()
     }
     if(ColorStatus == 1){
         dialogBox.show()
@@ -285,8 +302,36 @@ async function livingroom_door2parentDialogBox(){
         }
 
         if(ColorStatus == 0){
-            dialogBoxFunction("The door is locked.")
-            await delay(1500)
+            if (isParentDoorUnlock == 0){
+                dialogBoxFunction("The door is locked.")
+                await delay(1500)
+            }
+            else if(isParentDoorUnlock == 1){
+                isParentDoorUnlock = 2
+                dialogBoxFunction("You opened the door")
+                await delay(2000)
+                fadeOutAnimation(75);
+                await delay(1500);
+                hideLivingRoom()
+                start_SceneParentRoom()
+    
+                fadeInAnimation(75);
+                await delay(1000);
+                
+            }
+            else{
+                showParentRoom()
+                ScreenNow = 3
+                mainCharacter.style("top:60%;left:70%")
+                FlashLightWhite_getXY()
+                bedroomKeyState = 0;
+                MoveBorder = ["parent_bigBed","parent_smallBed","parent_doll","parent_photo_label"
+                        ,"parent_closet","parent_door"]
+                PressEBorder = [0,1,2,3,4,5]
+    
+                hideLivingRoom()
+            }
+            
         }
 
         dialogBox.hide()

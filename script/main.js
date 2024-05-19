@@ -116,6 +116,10 @@ async function dev(e) {
     fadeInAnimation(75);
     await delay(1000);
   }
+  else if(e == 5){
+    dev(4)
+    UnlockYellow()
+  }
 }
 
 async function startGame() {

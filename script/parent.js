@@ -21,6 +21,33 @@ function parent_doorDialogBox(){
 }
 
 
+async function parent_photo_labelDialogBox(){
+
+    isControlingCharacter = 0
+    dialogBox.show()
+
+    if(ColorStatus == 2){
+        dialogBoxFunction("I love Dad and Mom, they are the best!")
+        await delay(3000)
+    }
+
+    if(ColorStatus == 1){
+        dialogBoxFunction("HaHa ! I finally kill all the people in the photo")
+        await delay(3500)
+    }
+
+    if(ColorStatus == 0){
+        dialogBoxFunction("This is the photo about my parent's wedding")
+        await delay(3000)
+    }
+
+
+    isControlingCharacter = 1
+    dialogBox.hide()
+
+}
+
+
 async function parent_smallBedDialogBox(){
 
     isControlingCharacter = 0

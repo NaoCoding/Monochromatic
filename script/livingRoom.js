@@ -142,6 +142,11 @@ async function livingroom_bigTableDialogBox(){
     isControlingCharacter = 0
         dialogBox.show()
 
+        if(ColorStatus == 2){
+            dialogBoxFunction("I love to play video games with my Dad!")
+            await delay(3000)
+        }
+
         if(ColorStatus == 1){
             dialogBoxFunction("I hate my sister, she steal the love from Mom and Dad!")
             await delay(3000)
@@ -160,6 +165,11 @@ async function livingroom_bigTableDialogBox(){
 async function livingroom_flowerDialogBox(){
     isControlingCharacter = 0
     dialogBox.show()
+
+        if(ColorStatus == 2){
+            dialogBoxFunction("This is my mom's favorite plants!")
+            await delay(2500)
+        }
 
         if(ColorStatus == 1){
             dialogBoxFunction("Leaves seems differents from I remembered...")
@@ -236,6 +246,9 @@ async function livingroom_door2outsideDialogBox(){
 
     isControlingCharacter = 0
         dialogBox.show()
+        if(ColorStatus == 2){
+            // 最後的密碼
+        }
 
         if(ColorStatus == 1){
             dialogBoxFunction("The door is locked so no one will discover people's death...")
@@ -256,6 +269,19 @@ async function livingroom_door2parentDialogBox(){
 
     isControlingCharacter = 0
         dialogBox.show()
+
+        if(ColorStatus == 2){
+            showParentRoom()
+            ScreenNow = 3
+            mainCharacter.style("top:60%;left:70%")
+            FlashLightWhite_getXY()
+            bedroomKeyState = 0;
+            MoveBorder = ["parent_bigBed","parent_smallBed","parent_doll","parent_photo_label"
+                    ,"parent_closet","parent_door"]
+            PressEBorder = [0,1,2,3,4,5]
+
+            hideLivingRoom()
+        }
 
         if(ColorStatus == 1){
             

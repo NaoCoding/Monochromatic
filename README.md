@@ -22,6 +22,8 @@ Wlick, a young guy, discovering his own story...
 
 Required keyboard and mouse to play.
 ```
+![image](https://github.com/NaoCoding/Monochromatic/assets/86964895/97bb1f38-eeae-47ff-9f83-eeeb0226c4a8)
+
 ### Screenshots
 
 ![螢幕擷取畫面 2024-05-20 004857](https://github.com/NaoCoding/Monochromatic/assets/86964895/3caf099d-cafd-4b75-85f0-c30f3edfcd97)

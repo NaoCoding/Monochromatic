@@ -91,16 +91,16 @@ async function bedroom_DateDialogBox(){
         if(haveDiary == 1){
             dialogBoxFunction("2024/05/17")
             await delay(1500)
-            dialogBoxFunction("It's the day for family vacation")
+            dialogBoxFunction("It's the day for family vacation.")
             await delay(2750)
-            dialogBoxFunction("All the doors are locked, spare key are placed under the bed")
+            dialogBoxFunction("All the doors are locked, spare key are placed under the bed.")
             await delay(4000)
             haveDiary = 2
             dialogBox.hide()
             isControlingCharacter = 1
         }
         else{
-            dialogBoxFunction("Today is 2024/05/19")
+            dialogBoxFunction("Today is 2024/05/19.")
             await delay(2000)
             dialogBox.hide()
             isControlingCharacter = 1
@@ -254,9 +254,9 @@ async function bedroom_ClosetDialogBox(){
             await delay(1500 + ClosetTouchTime * 150)
         }
         else if(ClosetTouchTime == 5){
-            dialogBoxFunction("I told you don't touch me, Idiot")
+            dialogBoxFunction("I told you don't touch me, Idiot.")
             await delay(3000)
-            dialogBoxFunction("Let me tell you a joke")
+            dialogBoxFunction("Let me tell you a joke.")
             await delay(2000)
             dialogBoxFunction("You!")
             await delay(1000)
@@ -270,10 +270,13 @@ async function bedroom_ClosetDialogBox(){
         haveDiary = 1
         diaryState = 1;
         closetKeyState = 0;
-        dialogBoxFunction("I think you may need this diary");
+        
+        dialogBoxFunction("Let me see what's in the closet....");
         await delay(3000);
         await ProgressBar_generator(55, 25, 40, 15, 808081, 1000, 2000, 3000);
-        dialogBoxFunction("Open your backpack, check the diary");
+        dialogBoxFunction("I think you may need this diary.");
+        await delay(3000);
+        dialogBoxFunction("Open your backpack, check the diary.");
         await delay(2500);
     }
     else{
@@ -293,7 +296,7 @@ async function bedroom_BookSheifDialogBox(){
     dialogBox.show()
 
     if(ColorStatus == 0){
-        dialogBoxFunction("I prefer red more than black and white")
+        dialogBoxFunction("I prefer red more than black and white.")
         await delay(3000)
     }
     else if(ColorStatus == 1){
@@ -301,7 +304,7 @@ async function bedroom_BookSheifDialogBox(){
         await delay(2250)
     }
     else if(ColorStatus == 2){
-        dialogBoxFunction("I think you are happy now, aren't you")
+        dialogBoxFunction("I think you are happy now, aren't you.")
         await delay(3000)
     }
     
@@ -329,9 +332,11 @@ async function bedroom_BedDialogBox(){
     else{
         haveDiary = 3
         haveBedRoomKey = 1
-        dialogBoxFunction("I think you may need this screct key");
+        dialogBoxFunction("I remember there was something weird underneath me.");
         bedroomKeyState = 1;
-        await delay(3000);
+        await delay(3500);
+        dialogBoxFunction("Let me find it for you.");
+        await delay(2500);
         await ProgressBar_generator(30, 15, 40, 15, 808081, 1000, 2000, 3000);
     }
     

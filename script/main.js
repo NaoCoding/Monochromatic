@@ -305,4 +305,5 @@ function setup() {
   colorAndInventSetup();
   BtnSuccess_SoundSetup();
   PressE2Interact_LabelSetup();
+  enableMoving();
 }

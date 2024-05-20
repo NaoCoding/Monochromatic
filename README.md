@@ -34,6 +34,12 @@ MaxWuTW : General Codes
 EnLiao (Rokusenn) : All the Images / Drawing / Game Design / Map Design
 ```
 
+### Contributors
+
+```
+JacobLinCool : Smooth character movement
+```
+
 ### Screenshots
 
 ![螢幕擷取畫面 2024-05-20 004857](https://github.com/NaoCoding/Monochromatic/assets/86964895/3caf099d-cafd-4b75-85f0-c30f3edfcd97)

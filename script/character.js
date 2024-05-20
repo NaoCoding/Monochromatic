@@ -29,8 +29,12 @@ function CharacterBtnDetection(e) {
 }
 
 function moveCharacter() {
+    if (!pressed.has("w") && !pressed.has("a") && !pressed.has("s") && !pressed.has("d")) {
+        return;
+    }
+
     const c = document.getElementById("mainCharacter");
-    const moveSpeed = 0.4; 
+    const moveSpeed = 0.4;
 
     if (isControlingCharacter == 1) {
         FlashLightWhite_getXY();
@@ -190,12 +194,12 @@ function disableMoving() {
 moveAnimationArr = "11111222221111133333";
 moveIDX = 0;
 
-document.onkeydown = (e) => {
+document.addEventListener("keydown", (e) => {
     const key = e.key.toLowerCase();
     pressed.add(key);
     CharacterBtnDetection(e);
-};
-document.onkeyup = (e) => {
+});
+document.addEventListener("keyup", (e) => {
     const key = e.key.toLowerCase();
     pressed.delete(key);
-};
+});

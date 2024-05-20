@@ -105,13 +105,13 @@ async function bedroom_safeBoxTrigger() {
     dialogBox.show();
     if (touchSafeBox < 2) {
       computerKeyState = 1;
-      dialogBoxFunction("Sorry you don't have the password! Go find the password!");
+      dialogBoxFunction("Sorry you don't have the key! Go find the key!");
       await delay(4000);
       dialogBoxFunction("You received a mystery item...");
       await delay(2500);
       dialogBox.hide();
     } else if(touchSafeBox==2){
-      dialogBoxFunction("Let me check your password for a few second....");
+      dialogBoxFunction("Let me check your key for a few second....");
       await delay(4000);
       dialogBox.hide();
       closetKeyState = 1;
@@ -120,14 +120,14 @@ async function bedroom_safeBoxTrigger() {
       dialogBox.show();
       dialogBoxFunction("The safe box was successfully opened!");
       await delay(3000);
-      dialogBoxFunction("This is the key for you. Go ahead!");
+      dialogBoxFunction("This is the secret key for you. Go ahead!");
       await delay(3000);
       dialogBox.hide();
       safeBoxKeyState = 0;
       touchSafeBox = 3
     }
     else{
-      dialogBoxFunction("You have already taken the key, aren't you?");
+      dialogBoxFunction("You have already taken the secret key, aren't you?");
       await delay(3000);
       dialogBox.hide();
     }

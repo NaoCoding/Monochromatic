@@ -30,7 +30,7 @@ function CharacterBtnDetection(e) {
 
 function moveCharacter() {
     const c = document.getElementById("mainCharacter");
-    const moveSpeed = 0.3;
+    const moveSpeed = 0.1;
 
     if (isControlingCharacter == 1) {
         FlashLightWhite_getXY();

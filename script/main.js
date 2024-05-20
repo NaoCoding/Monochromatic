@@ -241,7 +241,7 @@ function main_menu() {
   main_menu_startGameBtn.style("borderColor", "rgb(0,0,0)");
   main_menu_startGameBtn.style("borderWidth", "2px");
   main_menu_startGameBtn.style("borderStyle", "solid");
-  main_menu_startGameBtn.attribute("onclick", "isMainScreen=0;startGame();");
+  main_menu_startGameBtn.attribute("onclick", "if(isMainScreen==1)startGame();isMainScreen=0;");
   main_menu_startGameBtn.show();
 
   main_menu_GitHubBtn = createImg(

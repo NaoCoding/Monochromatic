@@ -82,4 +82,6 @@ async function BGM(){
     }
 }
 
-
+// Hi , I am audio (x)
+// This Commit is managed to make GitHub Page modify the speed of character QAQ
+// I don't know why it's not changing...

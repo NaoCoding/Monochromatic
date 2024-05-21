@@ -38,6 +38,7 @@ EnLiao (Rokusenn) : All the Images / Drawing / Game Design / Map Design
 
 ```
 JacobLinCool : Smooth character movement
+               DialogBox / StoryTellBox Space Skip 
 ```
 
 ### Screenshots

@@ -135,7 +135,7 @@ async function passwordDoorForBottomDialogBox() {
             start_sceneEnding();
         } else {
             dialogBox.show();
-            await dialogBoxFunction("mooon -> rabbit -> sun");
+            await dialogBoxFunction("moon -> rabbit -> sun");
             dialogBox.hide();
             currentInput = "";
             updateDisplay();

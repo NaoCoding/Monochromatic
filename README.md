@@ -21,6 +21,9 @@ A Story based game written with p5.js
 Wlick, a young guy, discovering his own story...
 
 Required keyboard and mouse to play.
+WASD for your character moving.
+Space for speed up the word dialog.
+Left Click to interact with items/objects in-game.
 ```
 ![image](https://github.com/NaoCoding/Monochromatic/assets/86964895/97bb1f38-eeae-47ff-9f83-eeeb0226c4a8)
 
